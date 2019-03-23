@@ -41,6 +41,9 @@ namespace FVat.Views.Main
         {
             if (AboutWindow != null)
                 AboutWindow.Close();
+
+            if (VATEntitiesWindow != null)
+                VATEntitiesWindow.Close();
         }
 
         private void NewVATMenuItem_Click(object sender, RoutedEventArgs e)

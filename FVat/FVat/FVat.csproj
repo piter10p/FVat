@@ -64,6 +64,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="DAL\AppDBContext.cs" />
+    <Compile Include="DAL\VATEntitiesManager.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.Designer.cs">
       <DependentUpon>201903231143446_Initial-Migration.cs</DependentUpon>
@@ -72,9 +73,14 @@
     <Compile Include="Migrations\201903231342107_Added-Basic-VAT-Entities-Table.Designer.cs">
       <DependentUpon>201903231342107_Added-Basic-VAT-Entities-Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903231656172_Changed-Number-Column-Name-To-ParcelNumber.cs" />
+    <Compile Include="Migrations\201903231656172_Changed-Number-Column-Name-To-ParcelNumber.Designer.cs">
+      <DependentUpon>201903231656172_Changed-Number-Column-Name-To-ParcelNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\VATEntity.cs" />
+    <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VATEntities\VATEntitiesTable.xaml.cs">
+      <DependentUpon>VATEntitiesTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VATEntities\VATEntitiesWindow.xaml.cs">
       <DependentUpon>VATEntitiesWindow.xaml</DependentUpon>
@@ -114,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VATEntities\VATEntitiesTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903231342107_Added-Basic-VAT-Entities-Table.resx">
       <DependentUpon>201903231342107_Added-Basic-VAT-Entities-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903231656172_Changed-Number-Column-Name-To-ParcelNumber.resx">
+      <DependentUpon>201903231656172_Changed-Number-Column-Name-To-ParcelNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

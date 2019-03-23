@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FVat.Views.VATEntities"
         mc:Ignorable="d"
-        Title="Lista Stron" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg">
+        Title="Lista Stron" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" MinWidth="300" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <local:VATEntitiesTable Grid.Column="0" />
     </Grid>
 </Window>

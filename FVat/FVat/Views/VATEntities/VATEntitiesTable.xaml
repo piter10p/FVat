@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="FVat.Views.VATEntities.VATEntitiesTable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FVat.Views.VATEntities"
+             xmlns:viewModel="clr-namespace:FVat.ViewModels"
+             xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:VATEntitiesViewModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding VATEntities, diag:PresentationTraceSources.TraceLevel=High}" AutoGenerateColumns="False" CanUserAddRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nazwa" Width="1*" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Adres" Width="1*" Binding="{Binding FullAddress}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
