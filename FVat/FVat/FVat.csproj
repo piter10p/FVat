@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201903231656172_Changed-Number-Column-Name-To-ParcelNumber.Designer.cs">
       <DependentUpon>201903231656172_Changed-Number-Column-Name-To-ParcelNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.cs" />
+    <Compile Include="Migrations\201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.Designer.cs">
+      <DependentUpon>201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\VATEntity.cs" />
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903231656172_Changed-Number-Column-Name-To-ParcelNumber.resx">
       <DependentUpon>201903231656172_Changed-Number-Column-Name-To-ParcelNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.resx">
+      <DependentUpon>201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

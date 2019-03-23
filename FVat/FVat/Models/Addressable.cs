@@ -16,18 +16,22 @@ namespace FVat.Models
         [Required, MaxLength(16)]
         public string ParcelNumber { get; set; }
 
-        [StringLength(maximumLength: 5, MinimumLength = 5)]
+        [Required, DataType(DataType.PostalCode)]
         public string PostCode { get; set; }
 
         [Required]
         public string PostCity { get; set; }
 
         [NotMapped]
-        public string FullAddress
+        public string FullAddressFormatted
         {
             get
             {
-                return $"{Street} {ParcelNumber}\n{PostCode} {PostCity}";
+                try
+                {
+                    return $"{Street} {ParcelNumber}\n{PostCode[0]}{PostCode[1]}-{PostCode[2]}{PostCode[3]}{PostCode[4]} {PostCity}";
+                }
+                catch { throw; }
             }
         }
     }
