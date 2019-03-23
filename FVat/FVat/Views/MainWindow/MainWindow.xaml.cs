@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FVat.Views
+namespace FVat.Views.MainWindow
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

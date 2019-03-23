@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FVat.Views
+namespace FVat.Views.MainWindow
 {
     /// <summary>
-    /// Interaction logic for StartWindow.xaml
+    /// Interaction logic for VATTable.xaml
     /// </summary>
-    public partial class StartWindow : Window
+    public partial class VATTable : UserControl
     {
-        public StartWindow()
+        public VATTable()
         {
             InitializeComponent();
-        }
-
-        private void DoubleAnimation_Completed(object sender, EventArgs e)
-        {
-            var mainWindow = new MainWindow.MainWindow();
-            mainWindow.Show();
-            this.Close();
         }
     }
 }

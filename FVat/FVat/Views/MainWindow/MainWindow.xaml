@@ -1,15 +1,17 @@
-﻿<Window x:Class="FVat.Views.MainWindow"
+﻿<Window x:Class="FVat.Views.MainWindow.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FVat.Views"
+        xmlns:my="clr-namespace:FVat.Views.MainWindow"
         mc:Ignorable="d"
         Title="Fvat" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg"
         Closing="Window_Closing">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
+                <MenuItem x:Name="NewVATMenuItem" Header="Nowa faktura"/>
                 <MenuItem x:Name="AboutMenuItem" Header="O programie" Click="AboutMenuItem_Click"/>
             </Menu>
             <Grid>
@@ -19,14 +21,7 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-                <DataGrid Grid.Column="0">
-                    <DataGrid.Columns >
-                        <DataGridTextColumn Header="Numer" Width="2*" />
-                        <DataGridTextColumn Header="Wydający" Width="1*" />
-                        <DataGridTextColumn Header="Odbierający" Width="1*" />
-                        <DataGridTextColumn Header="Kwota brutto" Width="1*" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                <my:VATTable Grid.Column="0" />
             </Grid>
         </DockPanel>
     </Grid>
