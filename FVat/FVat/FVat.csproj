@@ -67,7 +67,13 @@
     <Compile Include="Migrations\201903231143446_Initial-Migration.Designer.cs">
       <DependentUpon>201903231143446_Initial-Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903231342107_Added-Basic-VAT-Entities-Table.cs" />
+    <Compile Include="Migrations\201903231342107_Added-Basic-VAT-Entities-Table.Designer.cs">
+      <DependentUpon>201903231342107_Added-Basic-VAT-Entities-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Addressable.cs" />
+    <Compile Include="Models\VATEntity.cs" />
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201903231143446_Initial-Migration.resx">
       <DependentUpon>201903231143446_Initial-Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903231342107_Added-Basic-VAT-Entities-Table.resx">
+      <DependentUpon>201903231342107_Added-Basic-VAT-Entities-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
