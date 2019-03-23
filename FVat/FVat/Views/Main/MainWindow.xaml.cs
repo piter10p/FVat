@@ -20,6 +20,7 @@ namespace FVat.Views.Main
     public partial class MainWindow : Window
     {
         private AboutWindow AboutWindow = null;
+        private VATEntities.VATEntitiesWindow VATEntitiesWindow = null;
 
         public MainWindow()
         {
@@ -46,6 +47,16 @@ namespace FVat.Views.Main
         {
             var newVatWindow = new NewVAT.NewVATWindow();
             newVatWindow.ShowDialog();
+        }
+
+        private void VATEntitiesListMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (VATEntitiesWindow == null)
+            {
+                VATEntitiesWindow = new VATEntities.VATEntitiesWindow();
+                VATEntitiesWindow.Closed += (x, y) => { VATEntitiesWindow = null; };
+                VATEntitiesWindow.Show();
+            }
         }
     }
 }

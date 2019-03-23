@@ -12,6 +12,10 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem x:Name="NewVATMenuItem" Header="Nowa faktura" Click="NewVATMenuItem_Click"/>
+                <MenuItem x:Name="VATEntitiesMenuItem" Header="Strony faktur">
+                    <MenuItem x:Name="VATEntitiesNewMenuItem" Header="Nowa strona"/>
+                    <MenuItem x:Name="VATEntitiesListMenuItem" Header="Lista stron" Click="VATEntitiesListMenuItem_Click" />
+                </MenuItem>
                 <MenuItem x:Name="AboutMenuItem" Header="O programie" Click="AboutMenuItem_Click"/>
             </Menu>
             <Grid>
