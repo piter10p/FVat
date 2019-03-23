@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,20 +15,18 @@ using System.Windows.Shapes;
 namespace FVat.Views
 {
     /// <summary>
-    /// Interaction logic for StartWindow.xaml
+    /// Interaction logic for AboutWindow.xaml
     /// </summary>
-    public partial class StartWindow : Window
+    public partial class AboutWindow : Window
     {
-        public StartWindow()
+        public AboutWindow()
         {
             InitializeComponent();
         }
 
-        private void DoubleAnimation_Completed(object sender, EventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            System.Diagnostics.Process.Start("https://github.com/piter10p");
         }
     }
 }
