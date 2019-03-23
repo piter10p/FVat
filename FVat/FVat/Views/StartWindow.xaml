@@ -1,0 +1,22 @@
+﻿<Window x:Class="FVat.Views.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FVat.Views"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="150" Width="250" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:01" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Image HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="150" Source="/FVat;component/Content/fvat logo.jpg"/>
+
+    </Grid>
+</Window>
