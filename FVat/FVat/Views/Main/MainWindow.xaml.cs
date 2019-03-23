@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FVat.Views.MainWindow
+namespace FVat.Views.Main
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -40,6 +40,12 @@ namespace FVat.Views.MainWindow
         {
             if (AboutWindow != null)
                 AboutWindow.Close();
+        }
+
+        private void NewVATMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var newVatWindow = new NewVAT.NewVATWindow();
+            newVatWindow.ShowDialog();
         }
     }
 }

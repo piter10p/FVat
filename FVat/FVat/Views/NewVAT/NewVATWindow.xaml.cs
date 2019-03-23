@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FVat.Views.MainWindow
+namespace FVat.Views.NewVAT
 {
     /// <summary>
-    /// Interaction logic for VATTable.xaml
+    /// Interaction logic for NewVATWindow.xaml
     /// </summary>
-    public partial class VATTable : UserControl
+    public partial class NewVATWindow : Window
     {
-        public VATTable()
+        public NewVATWindow()
         {
             InitializeComponent();
         }

@@ -77,11 +77,14 @@
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainWindow\MainWindow.xaml.cs">
+    <Compile Include="Views\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainWindow\VATTable.xaml.cs">
+    <Compile Include="Views\Main\VATTable.xaml.cs">
       <DependentUpon>VATTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewVAT\NewVATWindow.xaml.cs">
+      <DependentUpon>NewVATWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
@@ -94,11 +97,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow\MainWindow.xaml">
+    <Page Include="Views\Main\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow\VATTable.xaml">
+    <Page Include="Views\Main\VATTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewVAT\NewVATWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
