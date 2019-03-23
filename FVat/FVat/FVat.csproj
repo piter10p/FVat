@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\Command.cs" />
     <Compile Include="DAL\AppDBContext.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.Designer.cs">
@@ -159,8 +160,6 @@
   <ItemGroup>
     <Resource Include="Content\fvat logo.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
