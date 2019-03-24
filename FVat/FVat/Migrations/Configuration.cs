@@ -39,5 +39,17 @@ namespace FVat.Migrations
             if(!context.VATEntities.Any(e => e.Name == testEntity2.Name))
                 context.VATEntities.Add(testEntity2);
         }
+
+        private void AddTestVATItems(DAL.AppDBContext context)
+        {
+            var testItem1 = new Models.VATItem() { Name = "Test Item 1", Amount = 1, Unit = Models.Unit.Meter, VATRate = Models.VATRate.Rate23, UnitPrice = 12 };
+            var testItem2 = new Models.VATItem() { Name = "Test Item 2", Amount = 5.554, Unit = Models.Unit.Meter3, VATRate = Models.VATRate.Rate5, UnitPrice = 213.23 };
+
+            if (!context.VATItems.Any(e => e.Name == testItem1.Name))
+                context.VATItems.Add(testItem1);
+
+            if (!context.VATItems.Any(e => e.Name == testItem2.Name))
+                context.VATItems.Add(testItem2);
+        }
     }
 }

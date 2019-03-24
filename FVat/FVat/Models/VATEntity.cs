@@ -8,14 +8,8 @@ using System.Threading.Tasks;
 
 namespace FVat.Models
 {
-    class VATEntity: Addressable
+    sealed class VATEntity: Addressable, IEntity, INameable
     {
-        [Key]
-        public int Id { get; set; }
-
-        [Required, MaxLength(256), Index(IsUnique = true)]
-        public string Name { get; set; }
-
         [StringLength(14, MinimumLength = 10)]
         public string NIP { get; set; }
 

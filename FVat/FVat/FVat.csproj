@@ -44,6 +44,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -104,11 +106,21 @@
     <Compile Include="Migrations\201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.Designer.cs">
       <DependentUpon>201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903241634057_Added-VATItems-Table.cs" />
+    <Compile Include="Migrations\201903241634057_Added-VATItems-Table.Designer.cs">
+      <DependentUpon>201903241634057_Added-VATItems-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
+    <Compile Include="Models\BasicEntity.cs" />
     <Compile Include="Models\IClosable.cs" />
+    <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\IShowable.cs" />
+    <Compile Include="Models\INameable.cs" />
+    <Compile Include="Models\Unit.cs" />
     <Compile Include="Models\VATEntity.cs" />
+    <Compile Include="Models\VATItem.cs" />
+    <Compile Include="Models\VATRate.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesEditorViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
@@ -204,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.resx">
       <DependentUpon>201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241634057_Added-VATItems-Table.resx">
+      <DependentUpon>201903241634057_Added-VATItems-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

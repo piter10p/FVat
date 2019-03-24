@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FVat.Views"
         mc:Ignorable="d"
-        Title="O programie" Height="110" Width="182" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="O programie" Height="110" Width="182" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Label Content="Autor" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Piotr Paszko" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>

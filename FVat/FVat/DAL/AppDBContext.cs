@@ -13,5 +13,6 @@ namespace FVat.DAL
         public AppDBContext(): base("DefaultConnection") {}
 
         public DbSet<VATEntity> VATEntities { get; set; }
+        public DbSet<VATItem> VATItems { get; set; }
     }
 }

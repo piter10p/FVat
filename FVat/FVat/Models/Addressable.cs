@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FVat.Models
 {
-    class Addressable
+    abstract class Addressable: BasicEntity
     {
         [Required]
         public string Street { get; set; }
