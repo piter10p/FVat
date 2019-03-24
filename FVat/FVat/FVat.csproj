@@ -82,6 +82,7 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="DAL\AppDBContext.cs" />
     <Compile Include="DAL\VATEntitiesManager.cs" />
+    <Compile Include="DAL\VATItemsManager.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.Designer.cs">
       <DependentUpon>201903231143446_Initial-Migration.cs</DependentUpon>
@@ -110,6 +111,10 @@
     <Compile Include="Migrations\201903241634057_Added-VATItems-Table.Designer.cs">
       <DependentUpon>201903241634057_Added-VATItems-Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903241914364_Removed-Amount-Column-From-VATItems-Table.cs" />
+    <Compile Include="Migrations\201903241914364_Removed-Amount-Column-From-VATItems-Table.Designer.cs">
+      <DependentUpon>201903241914364_Removed-Amount-Column-From-VATItems-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\BasicEntity.cs" />
@@ -126,6 +131,7 @@
     <Compile Include="ViewModels\ListViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesEditorViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
+    <Compile Include="ViewModels\VATItemsViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -153,6 +159,9 @@
     </Compile>
     <Compile Include="Views\VATEntities\VATEntityEditorWindow.xaml.cs">
       <DependentUpon>VATEntityEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VATItems\VATItemsWindow.xaml.cs">
+      <DependentUpon>VATItemsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AboutWindow.xaml">
       <SubType>Designer</SubType>
@@ -183,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VATEntities\VATEntityEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VATItems\VATItemsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -221,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903241634057_Added-VATItems-Table.resx">
       <DependentUpon>201903241634057_Added-VATItems-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241914364_Removed-Amount-Column-From-VATItems-Table.resx">
+      <DependentUpon>201903241914364_Removed-Amount-Column-From-VATItems-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

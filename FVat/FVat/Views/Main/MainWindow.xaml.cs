@@ -21,6 +21,7 @@ namespace FVat.Views.Main
     {
         private AboutWindow AboutWindow = null;
         private VATEntities.VATEntitiesWindow VATEntitiesWindow = null;
+        private VATItems.VATItemsWindow VATItemsWindow = null;
 
         public MainWindow()
         {
@@ -59,6 +60,16 @@ namespace FVat.Views.Main
                 VATEntitiesWindow = new VATEntities.VATEntitiesWindow();
                 VATEntitiesWindow.Closed += (x, y) => { VATEntitiesWindow = null; };
                 VATEntitiesWindow.Show();
+            }
+        }
+
+        private void VATItemsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (VATItemsWindow == null)
+            {
+                VATItemsWindow = new VATItems.VATItemsWindow();
+                VATItemsWindow.Closed += (x, y) => { VATItemsWindow = null; };
+                VATItemsWindow.Show();
             }
         }
     }
