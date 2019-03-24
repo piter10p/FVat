@@ -19,9 +19,10 @@ namespace FVat.Views.VATEntities
     /// </summary>
     public partial class VATEntityEditorWindow: Window, Models.IClosable, Models.IShowable
     {
-        public VATEntityEditorWindow()
+        public VATEntityEditorWindow(object viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)

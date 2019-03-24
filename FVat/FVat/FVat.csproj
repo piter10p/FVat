@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201903241247040_Name-Column-In-VATEntities-Becomes-Unique.Designer.cs">
       <DependentUpon>201903241247040_Name-Column-In-VATEntities-Becomes-Unique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.cs" />
+    <Compile Include="Migrations\201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.Designer.cs">
+      <DependentUpon>201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\IClosable.cs" />
@@ -197,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903241247040_Name-Column-In-VATEntities-Becomes-Unique.resx">
       <DependentUpon>201903241247040_Name-Column-In-VATEntities-Becomes-Unique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.resx">
+      <DependentUpon>201903241426252_NIP-Column-In-VATEntities-Max-Length-Changed-To-14.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

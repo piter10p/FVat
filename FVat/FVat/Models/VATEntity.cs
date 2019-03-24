@@ -16,7 +16,7 @@ namespace FVat.Models
         [Required, MaxLength(256), Index(IsUnique = true)]
         public string Name { get; set; }
 
-        [StringLength(10, MinimumLength = 10)]
+        [StringLength(14, MinimumLength = 10)]
         public string NIP { get; set; }
 
         [StringLength(11, MinimumLength = 11)]
