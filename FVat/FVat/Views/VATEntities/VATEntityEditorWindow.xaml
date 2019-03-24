@@ -32,19 +32,19 @@
         <GroupBox Header="Informacje" VerticalAlignment="Top" Margin="10,276,10,0" Height="263" FontWeight="Bold">
             <Grid>
                 <Label Content="NIP" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <wpfx:MaskedTextBox Text="{Binding VATEntity.NIP, Mode=TwoWay}" Mask="000-000-00-00"  Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+                <wpfx:MaskedTextBox Text="{Binding Item.NIP, Mode=TwoWay}" Mask="000-000-00-00"  Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
 
                 <Label Content="PESEL" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <wpfx:MaskedTextBox Text="{Binding VATEntity.PESEL, Mode=TwoWay}" Mask="00000000000"  Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+                <wpfx:MaskedTextBox Text="{Binding Item.PESEL, Mode=TwoWay}" Mask="00000000000"  Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
 
                 <Label Content="E-Mail" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <TextBox Text="{Binding VATEntity.EMail, Mode=TwoWay}"  Height="23" Margin="10,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+                <TextBox Text="{Binding Item.EMail, Mode=TwoWay}"  Height="23" Margin="10,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
 
                 <Label Content="Numer Telefonu" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <wpfx:MaskedTextBox Text="{Binding VATEntity.PhoneNumber, Mode=TwoWay}" Mask="+00 000 000 000"  Height="23" Margin="10,203,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+                <wpfx:MaskedTextBox Text="{Binding Item.PhoneNumber, Mode=TwoWay}" Mask="+00 000 000 000"  Height="23" Margin="10,203,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
 
-        <Button x:Name="SaveButton" Click="SaveButton_Click" Command="{Binding SaveChanges}" CommandParameter="{Binding VATEntity}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
+        <Button x:Name="SaveButton" Click="SaveButton_Click" Command="{Binding SaveChanges}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
     </Grid>
 </Window>

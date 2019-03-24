@@ -8,22 +8,18 @@ using FVat.Models;
 
 namespace FVat.ViewModels
 {
-    class VATEntitiesEditorViewModel: BaseViewModel
+    sealed class VATEntitiesEditorViewModel: EditorViewModel<VATEntity>
     {
-        private VATEntity _VATEntity;
-
-        public Commands.Command SaveChanges { get; private set; }
-
         public string Name
         {
             get
             {
-                return VATEntity.Name;
+                return Item.Name;
             }
 
             set
             {
-                VATEntity.Name = value;
+                Item.Name = value;
                 SaveChanges.RaiseCanExecuteChanged();
             }
         }
@@ -32,12 +28,12 @@ namespace FVat.ViewModels
         {
             get
             {
-                return VATEntity.Street;
+                return Item.Street;
             }
 
             set
             {
-                VATEntity.Street = value;
+                Item.Street = value;
                 SaveChanges.RaiseCanExecuteChanged();
             }
         }
@@ -46,12 +42,12 @@ namespace FVat.ViewModels
         {
             get
             {
-                return VATEntity.ParcelNumber;
+                return Item.ParcelNumber;
             }
 
             set
             {
-                VATEntity.ParcelNumber = value;
+                Item.ParcelNumber = value;
                 SaveChanges.RaiseCanExecuteChanged();
             }
         }
@@ -60,12 +56,12 @@ namespace FVat.ViewModels
         {
             get
             {
-                return VATEntity.PostCode;
+                return Item.PostCode;
             }
 
             set
             {
-                VATEntity.PostCode = value;
+                Item.PostCode = value;
                 SaveChanges.RaiseCanExecuteChanged();
             }
         }
@@ -74,49 +70,24 @@ namespace FVat.ViewModels
         {
             get
             {
-                return VATEntity.PostCity;
+                return Item.PostCity;
             }
 
             set
             {
-                VATEntity.PostCity = value;
+                Item.PostCity = value;
                 SaveChanges.RaiseCanExecuteChanged();
             }
         }
 
-        public VATEntity VATEntity
-        {
-            get
-            {
-                return _VATEntity;
-            }
-
-            set
-            {
-                _VATEntity = value;
-            }
-        }
-
         public VATEntitiesEditorViewModel(Action<object> saveAction)
+            :base(saveAction, new VATEntity())
         {
-            _VATEntity = new VATEntity();
-            SaveChanges = new Commands.Command(saveAction, CanSave);
         }
 
         public VATEntitiesEditorViewModel(Action<object> saveAction, VATEntity entity)
+            :base(saveAction, entity)
         {
-            _VATEntity = entity;
-            SaveChanges = new Commands.Command(saveAction, CanSave);
-        }
-
-        private bool CanSave()
-        {
-            var context = new ValidationContext(VATEntity, null, null);
-            var results = new List<ValidationResult>();
-
-            if (Validator.TryValidateObject(VATEntity, context, results))
-                return true;
-            return false;
         }
     }
 }
