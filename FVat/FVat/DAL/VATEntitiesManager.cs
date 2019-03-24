@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,24 @@ namespace FVat.DAL
             {
                 var context = new AppDBContext();
                 context.VATEntities.Add(entity);
+                await context.SaveChangesAsync();
+            }
+            catch { throw; }
+        }
+
+        public static async Task ModifyEntityAsync(VATEntity entity)
+        {
+            try
+            {
+                var context = new AppDBContext();
+                var target = await context.VATEntities.FindAsync(entity.Id);
+
+                if (target == null)
+                    throw new KeyNotFoundException();
+
+                target.Update(entity);
+                context.Entry(target).State = EntityState.Modified;
+
                 await context.SaveChangesAsync();
             }
             catch { throw; }

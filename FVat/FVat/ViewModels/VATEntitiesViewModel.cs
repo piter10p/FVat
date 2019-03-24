@@ -34,6 +34,15 @@ namespace FVat.ViewModels
             {
                 _selectedEntity = value;
                 DeleteCommand.RaiseCanExecuteChanged();
+                OnNotifyPropertyChanged("IsEntitySelected");
+            }
+        }
+
+        public bool IsEntitySelected
+        {
+            get
+            {
+                return SelectedEntity != null;
             }
         }
 
@@ -64,6 +73,19 @@ namespace FVat.ViewModels
             catch { throw; }
         }
 
+        public async void ModifyEntity(object parameter)
+        {
+            try
+            {
+                if (parameter == null)
+                    throw new ArgumentNullException();
+
+                await DAL.VATEntitiesManager.ModifyEntityAsync(parameter as VATEntity);
+                UpdateEntities();
+            }
+            catch { throw; }
+        }
+
         private async void OnDeleteAsync(object parameter)
         {
             try
@@ -79,7 +101,7 @@ namespace FVat.ViewModels
 
         private bool CanDelete()
         {
-            return SelectedEntity != null;
+            return IsEntitySelected;
         }
 
         private void UpdateEntities()

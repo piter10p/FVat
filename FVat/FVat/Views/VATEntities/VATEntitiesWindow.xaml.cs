@@ -30,5 +30,12 @@ namespace FVat.Views.VATEntities
             var win = new VATEntityEditorWindow(new ViewModels.VATEntitiesEditorViewModel(context.AddNewEntity));
             win.ShowDialog();
         }
+
+        private void ModifyEntityButton_Click(object sender, RoutedEventArgs e)
+        {
+            var context = (ViewModels.VATEntitiesViewModel)DataContext;
+            var win = new VATEntityEditorWindow(new ViewModels.VATEntitiesEditorViewModel(context.ModifyEntity, context.SelectedEntity));
+            win.ShowDialog();
+        }
     }
 }

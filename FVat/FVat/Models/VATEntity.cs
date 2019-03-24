@@ -27,5 +27,19 @@ namespace FVat.Models
 
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
+
+        public void Update(VATEntity source)
+        {
+            Id = source.Id;
+            Name = source.Name;
+            NIP = source.NIP;
+            PESEL = source.PESEL;
+            EMail = source.EMail;
+            PhoneNumber = source.PhoneNumber;
+            Street = source.Street;
+            ParcelNumber = source.ParcelNumber;
+            PostCode = source.PostCode;
+            PostCity = source.PostCity;
+        }
     }
 }

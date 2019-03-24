@@ -10,7 +10,7 @@ namespace FVat.ViewModels
 {
     class VATEntitiesEditorViewModel: BaseViewModel
     {
-        private VATEntity _VATEntity = new VATEntity();
+        private VATEntity _VATEntity;
 
         public Commands.Command SaveChanges { get; private set; }
 
@@ -99,6 +99,13 @@ namespace FVat.ViewModels
 
         public VATEntitiesEditorViewModel(Action<object> saveAction)
         {
+            _VATEntity = new VATEntity();
+            SaveChanges = new Commands.Command(saveAction, CanSave);
+        }
+
+        public VATEntitiesEditorViewModel(Action<object> saveAction, VATEntity entity)
+        {
+            _VATEntity = entity;
             SaveChanges = new Commands.Command(saveAction, CanSave);
         }
 
