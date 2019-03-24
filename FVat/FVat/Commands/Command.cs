@@ -9,15 +9,15 @@ namespace FVat.Commands
 {
     class Command: ICommand
     {
-        Action _TargetExecuteMethod;
+        Action<object> _TargetExecuteMethod;
         Func<bool> _TargetCanExecuteMethod;
 
-        public Command(Action executeMethod)
+        public Command(Action<object> executeMethod)
         {
             _TargetExecuteMethod = executeMethod;
         }
 
-        public Command(Action executeMethod, Func<bool> canExecuteMethod)
+        public Command(Action<object> executeMethod, Func<bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = canExecuteMethod;
@@ -50,7 +50,7 @@ namespace FVat.Commands
         {
             if (_TargetExecuteMethod != null)
             {
-                _TargetExecuteMethod();
+                _TargetExecuteMethod(parameter);
             }
         }
     }

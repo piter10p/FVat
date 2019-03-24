@@ -35,5 +35,16 @@ namespace FVat.DAL
             }
             catch { throw; }
         }
+
+        public static async Task AddNewEntityAsync(VATEntity entity)
+        {
+            try
+            {
+                var context = new AppDBContext();
+                context.VATEntities.Add(entity);
+                await context.SaveChangesAsync();
+            }
+            catch { throw; }
+        }
     }
 }

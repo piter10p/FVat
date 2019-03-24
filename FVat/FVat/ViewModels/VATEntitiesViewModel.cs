@@ -51,7 +51,20 @@ namespace FVat.ViewModels
             }
         }
 
-        private async void OnDeleteAsync()
+        public async void AddNewEntity(object parameter)
+        {
+            try
+            {
+                if (parameter == null)
+                    throw new ArgumentNullException();
+
+                await DAL.VATEntitiesManager.AddNewEntityAsync(parameter as VATEntity);
+                UpdateEntities();
+            }
+            catch { throw; }
+        }
+
+        private async void OnDeleteAsync(object parameter)
         {
             try
             {

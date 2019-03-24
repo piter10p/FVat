@@ -17,11 +17,16 @@ namespace FVat.Views.VATEntities
     /// <summary>
     /// Interaction logic for VATEntityEditorWindow.xaml
     /// </summary>
-    public partial class VATEntityEditorWindow : Window
+    public partial class VATEntityEditorWindow: Window, Models.IClosable, Models.IShowable
     {
         public VATEntityEditorWindow()
         {
             InitializeComponent();
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

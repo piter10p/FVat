@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FVat.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,7 +30,7 @@ namespace FVat.Models
             {
                 try
                 {
-                    return $"{Street} {ParcelNumber}\n{PostCode[0]}{PostCode[1]}-{PostCode[2]}{PostCode[3]}{PostCode[4]} {PostCity}";
+                    return $"{Street} {ParcelNumber}\n{PostCode} {PostCity}";
                 }
                 catch { throw; }
             }

@@ -56,6 +56,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -81,10 +96,17 @@
     <Compile Include="Migrations\201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.Designer.cs">
       <DependentUpon>201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903241247040_Name-Column-In-VATEntities-Becomes-Unique.cs" />
+    <Compile Include="Migrations\201903241247040_Name-Column-In-VATEntities-Becomes-Unique.Designer.cs">
+      <DependentUpon>201903241247040_Name-Column-In-VATEntities-Becomes-Unique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
+    <Compile Include="Models\IClosable.cs" />
+    <Compile Include="Models\IShowable.cs" />
     <Compile Include="Models\VATEntity.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\VATEntitiesEditorViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
@@ -172,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.resx">
       <DependentUpon>201903231834251_Added-NIP-PESEL-EMail-And-PhoneNumber-Columns-To-VATEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241247040_Name-Column-In-VATEntities-Becomes-Unique.resx">
+      <DependentUpon>201903241247040_Name-Column-In-VATEntities-Becomes-Unique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

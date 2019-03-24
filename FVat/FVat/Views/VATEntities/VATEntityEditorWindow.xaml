@@ -4,12 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FVat.Views.VATEntities"
+        xmlns:viewmodel="clr-namespace:FVat.ViewModels"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="VATEntityEditorWindow" Height="450" Width="800">
-    <Grid>
-        <GroupBox Header="Adres" Height="100" Margin="10,64,10,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top"/>
-        <Label Content="Nazwa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        Title="Edycja Strony" Height="612.5" Width="800" MinWidth="400" MinHeight="612.5" MaxHeight="612.5" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen">
 
+    <Grid>
+        <Label Content="Nazwa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Text="{Binding Name, Mode=TwoWay}"  Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+        <GroupBox Header="Adres" Height="207" Margin="10,64,10,0" VerticalAlignment="Top" FontWeight="Bold">
+            <Grid>
+                <Label Content="Ulica" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox Text="{Binding Street, Mode=TwoWay}"  Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+                <Label Content="Numer" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox Text="{Binding ParcelNumber, Mode=TwoWay}"  Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+                <Label Content="Kod pocztowy" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <wpfx:MaskedTextBox Text="{Binding PostCode, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Mask="00-000" Margin="10,149,0,0" Width="90" FontWeight="Normal" />
+
+                <Label Content="Poczta" HorizontalAlignment="Left" Margin="105,118,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox Text="{Binding PostCity, Mode=TwoWay}"  Height="23" Margin="105,149,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Informacje" VerticalAlignment="Top" Margin="10,276,10,0" Height="263" FontWeight="Bold">
+            <Grid>
+                <Label Content="NIP" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <wpfx:MaskedTextBox Text="{Binding VATEntity.NIP, Mode=TwoWay}" Mask="000-000-00-00"  Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+                <Label Content="PESEL" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <wpfx:MaskedTextBox Text="{Binding VATEntity.PESEL, Mode=TwoWay}" Mask="00000000000"  Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+                <Label Content="E-Mail" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <TextBox Text="{Binding VATEntity.EMail, Mode=TwoWay}"  Height="23" Margin="10,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+                <Label Content="Numer Telefonu" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <wpfx:MaskedTextBox Text="{Binding VATEntity.PhoneNumber, Mode=TwoWay}" Mask="+00 000 000 000"  Height="23" Margin="10,203,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+            </Grid>
+        </GroupBox>
+
+        <Button x:Name="SaveButton" Click="SaveButton_Click" Command="{Binding SaveChanges}" CommandParameter="{Binding VATEntity}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
     </Grid>
 </Window>
