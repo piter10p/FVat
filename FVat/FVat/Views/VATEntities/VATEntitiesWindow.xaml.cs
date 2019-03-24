@@ -34,7 +34,7 @@ namespace FVat.Views.VATEntities
         private void ModifyEntityButton_Click(object sender, RoutedEventArgs e)
         {
             var context = (ViewModels.VATEntitiesViewModel)DataContext;
-            var win = new VATEntityEditorWindow(new ViewModels.VATEntitiesEditorViewModel(context.ModifyEntity, context.SelectedEntity));
+            var win = new VATEntityEditorWindow(new ViewModels.VATEntitiesEditorViewModel(context.ModifyEntity, context.SelectedItem));
             win.ShowDialog();
         }
     }
