@@ -1,0 +1,15 @@
+﻿<Window x:Class="FVat.Views.VATEntities.VATEntityEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FVat.Views.VATEntities"
+        mc:Ignorable="d"
+        Title="VATEntityEditorWindow" Height="450" Width="800">
+    <Grid>
+        <GroupBox Header="Adres" Height="100" Margin="10,64,10,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top"/>
+        <Label Content="Nazwa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

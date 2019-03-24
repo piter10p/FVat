@@ -18,5 +18,22 @@ namespace FVat.DAL
             }
             catch { throw;  }
         }
+
+        public static async Task RemoveEntityAsync(VATEntity entity)
+        {
+            try
+            {
+                var context = new AppDBContext();
+                var query = from e in context.VATEntities where e.Name == entity.Name select e;
+
+                foreach(var e in query)
+                {
+                    context.VATEntities.Remove(e);
+                }
+
+                await context.SaveChangesAsync();
+            }
+            catch { throw; }
+        }
     }
 }

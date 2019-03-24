@@ -84,6 +84,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\VATEntity.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
@@ -110,6 +111,9 @@
     <Compile Include="Views\VATEntities\VATEntitiesWindow.xaml.cs">
       <DependentUpon>VATEntitiesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VATEntities\VATEntityEditorWindow.xaml.cs">
+      <DependentUpon>VATEntityEditorWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VATEntities\VATEntitiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VATEntities\VATEntityEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

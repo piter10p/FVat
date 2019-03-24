@@ -33,10 +33,10 @@ namespace FVat.Migrations
             var testEntity1 = new Models.VATEntity() { Name = "Test VAT Entity", ParcelNumber = "12/2", PostCity = "Warszawa", PostCode = "00001", Street = "Al. Ujazdowskie", NIP = "1112223344", EMail = "test@test.test", PhoneNumber = "+48111222333" };
             var testEntity2 = new Models.VATEntity() { Name = "Test VAT Entity 2", ParcelNumber = "432", PostCity = "Poznañ", PostCode = "01163", Street = "11 Listopada", PESEL = "44051401458" };
 
-            if (!context.VATEntities.Any(e => e.Name != testEntity1.Name))
+            if (!context.VATEntities.Any(e => e.Name == testEntity1.Name))
                 context.VATEntities.Add(testEntity1);
 
-            if(!context.VATEntities.Any(e => e.Name != testEntity2.Name))
+            if(!context.VATEntities.Any(e => e.Name == testEntity2.Name))
                 context.VATEntities.Add(testEntity2);
         }
     }
