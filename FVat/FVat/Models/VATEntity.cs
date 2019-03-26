@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FVat.Models
 {
-    sealed class VATEntity: Addressable, IEntity, INameable
+    sealed class VATEntity: Addressable, IUpdateable<VATEntity>
     {
         [StringLength(14, MinimumLength = 10)]
         public string NIP { get; set; }

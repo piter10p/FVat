@@ -15,6 +15,32 @@ namespace FVat.ViewModels
         {
         }
 
+        public async void AddNewItem(object parameter)
+        {
+            try
+            {
+                if (parameter == null)
+                    throw new ArgumentNullException();
+
+                await DAL.VATItemsManager.AddNewItemAsync(parameter as VATItem);
+                UpdateList();
+            }
+            catch { throw; }
+        }
+
+        public async void ModifyItem(object parameter)
+        {
+            try
+            {
+                if (parameter == null)
+                    throw new ArgumentNullException();
+
+                await DAL.VATItemsManager.ModifyItemAsync(parameter as VATItem);
+                UpdateList();
+            }
+            catch { throw; }
+        }
+
         protected override async void OnDeleteAsync(object parameter)
         {
             try

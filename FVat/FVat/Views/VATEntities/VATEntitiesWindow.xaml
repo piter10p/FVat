@@ -14,7 +14,7 @@
     <Grid>
         <DataGrid Margin="0,0,0,35" ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn MinWidth="150" Header="Nazwa" Width="1*" Binding="{Binding Name}" IsReadOnly="True" SortDirection="Descending" />
+                <DataGridTextColumn MinWidth="150" Header="Nazwa" Width="1*" Binding="{Binding Name}" IsReadOnly="True" SortDirection="Ascending" />
                 <DataGridTextColumn MinWidth="150" Header="Adres" Width="1*" Binding="{Binding FullAddressFormatted}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>

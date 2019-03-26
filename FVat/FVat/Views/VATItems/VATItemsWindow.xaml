@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FVat.Views.VATItems"
         xmlns:viewModel="clr-namespace:FVat.ViewModels"
         mc:Ignorable="d"
-        Title="Przedmioty Faktur" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg">
+        Title="Przedmioty Faktur" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModel:VATItemsViewModel />
     </Window.DataContext>
@@ -14,15 +14,14 @@
     <Grid>
         <DataGrid Margin="0,0,0,35" ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn MinWidth="150" Header="Nazwa" Width="2*" Binding="{Binding Name}" IsReadOnly="True" SortDirection="Descending" />
+                <DataGridTextColumn MinWidth="150" Header="Nazwa" Width="2*" Binding="{Binding Name}" IsReadOnly="True" SortDirection="Ascending" />
                 <DataGridTextColumn MinWidth="150" Header="J.M." Width="1*" Binding="{Binding UnitText}" IsReadOnly="True" />
                 <DataGridTextColumn MinWidth="150" Header="Cena jednostkowa netto" Width="1*" Binding="{Binding PriceText}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
 
         <Button Content="Usuń" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
-        <!--<Button x:Name="ModifyEntityButton" Click="ModifyEntityButton_Click" IsEnabled="{Binding IsItemSelected}" Content="Modyfikuj" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
-        <Button x:Name="AddNewEntityButton" Click="AddNewEntityButton_Click" Content="Dodaj" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
-        <Button Content="Wybierz" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" IsEnabled="False"/>-->
+        <Button x:Name="ModifyItemButton" Click="ModifyItemButton_Click" IsEnabled="{Binding IsItemSelected}" Content="Modyfikuj" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
+        <Button x:Name="AddNewItemButton" Click="AddNewItemButton_Click" Content="Dodaj" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
     </Grid>
 </Window>

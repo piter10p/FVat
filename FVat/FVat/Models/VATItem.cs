@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FVat.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FVat.Models
 {
-    sealed class VATItem: BasicEntity
+    sealed class VATItem: BasicEntity, IUpdateable<VATItem>
     {
         [Required]
         public Unit Unit { get; set; }
@@ -24,7 +25,8 @@ namespace FVat.Models
         {
             get
             {
-                return UnitConverter.ToString(Unit);
+                var converter = new EnumDescriptionTypeConverter(typeof(Unit));
+                return converter.ConvertToInvariantString(Unit);
             }
         }
 
@@ -35,6 +37,15 @@ namespace FVat.Models
             {
                 return UnitPrice.ToString("C");
             }
+        }
+
+        public void Update(VATItem source)
+        {
+            this.Id = source.Id;
+            this.Name = source.Name;
+            this.Unit = source.Unit;
+            this.UnitPrice = source.UnitPrice;
+            this.VATRate = source.VATRate;
         }
     }
 }

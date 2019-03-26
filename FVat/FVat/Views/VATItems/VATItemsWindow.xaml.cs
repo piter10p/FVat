@@ -23,5 +23,19 @@ namespace FVat.Views.VATItems
         {
             InitializeComponent();
         }
+
+        private void ModifyItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            var context = (ViewModels.VATItemsViewModel)DataContext;
+            var win = new VATItemEditorWindow(new ViewModels.VATItemsEditorViewModel(context.ModifyItem, context.SelectedItem));
+            win.ShowDialog();
+        }
+
+        private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            var context = (ViewModels.VATItemsViewModel)DataContext;
+            var win = new VATItemEditorWindow(new ViewModels.VATItemsEditorViewModel(context.AddNewItem));
+            win.ShowDialog();
+        }
     }
 }
