@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FVat.Views"
         xmlns:my="clr-namespace:FVat.Views.Main"
+        xmlns:viewModel="clr-namespace:FVat.ViewModels"
         mc:Ignorable="d"
         Title="Fvat" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg"
         Closing="Window_Closing">
+
+    <Window.DataContext>
+        <viewModel:VATsViewModel />
+    </Window.DataContext>
+
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -23,7 +29,19 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-                <my:VATTable Grid.Column="0" />
+                <DataGrid ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Numer" Width="2*" Binding="{Binding Name}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Wydający" Width="1*" Binding="{Binding Issuer.Name}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Odbierający" Width="1*" Binding="{Binding Receiver.Name}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Kwota brutto" Width="1*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Column="2">
+                    <Button Content="Usuń" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
+                    <Button x:Name="ModifyItemButton" Click="ModifyItemButton_Click" IsEnabled="{Binding IsItemSelected}" Content="Modyfikuj" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
+                    <Button x:Name="AddNewItemButton" Click="AddNewItemButton_Click" Content="Dodaj" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
+                </Grid>
             </Grid>
         </DockPanel>
     </Grid>

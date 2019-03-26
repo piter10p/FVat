@@ -75,5 +75,15 @@ namespace FVat.Views.Main
                 VATItemsWindow.Show();
             }
         }
+
+        private void ModifyItemButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

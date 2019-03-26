@@ -14,5 +14,6 @@ namespace FVat.DAL
 
         public DbSet<VATEntity> VATEntities { get; set; }
         public DbSet<VATItem> VATItems { get; set; }
+        public DbSet<VAT> VATs { get; set; }
     }
 }

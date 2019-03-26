@@ -83,6 +83,7 @@
     <Compile Include="DAL\AppDBContext.cs" />
     <Compile Include="DAL\VATEntitiesManager.cs" />
     <Compile Include="DAL\VATItemsManager.cs" />
+    <Compile Include="DAL\VATsManager.cs" />
     <Compile Include="Extensions\EnumBindingSourceExtension.cs" />
     <Compile Include="Extensions\EnumDescriptionTypeConverter.cs" />
     <Compile Include="Migrations\201903231143446_Initial-Migration.cs" />
@@ -117,6 +118,10 @@
     <Compile Include="Migrations\201903241914364_Removed-Amount-Column-From-VATItems-Table.Designer.cs">
       <DependentUpon>201903241914364_Removed-Amount-Column-From-VATItems-Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903261652379_Added-VATs-table.cs" />
+    <Compile Include="Migrations\201903261652379_Added-VATs-table.Designer.cs">
+      <DependentUpon>201903261652379_Added-VATs-table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\BasicEntity.cs" />
@@ -126,6 +131,7 @@
     <Compile Include="Models\INameable.cs" />
     <Compile Include="Models\IUpdateable.cs" />
     <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\VAT.cs" />
     <Compile Include="Models\VATEntity.cs" />
     <Compile Include="Models\VATItem.cs" />
     <Compile Include="Models\VATRate.cs" />
@@ -136,14 +142,12 @@
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
     <Compile Include="ViewModels\VATItemsEditorViewModel.cs" />
     <Compile Include="ViewModels\VATItemsViewModel.cs" />
+    <Compile Include="ViewModels\VATsViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Main\VATTable.xaml.cs">
-      <DependentUpon>VATTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewVAT\NewVATWindow.xaml.cs">
       <DependentUpon>NewVATWindow.xaml</DependentUpon>
@@ -175,10 +179,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Main\MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Main\VATTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903241914364_Removed-Amount-Column-From-VATItems-Table.resx">
       <DependentUpon>201903241914364_Removed-Amount-Column-From-VATItems-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261652379_Added-VATs-table.resx">
+      <DependentUpon>201903261652379_Added-VATs-table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
