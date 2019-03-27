@@ -16,5 +16,17 @@ namespace FVat.Models
         [ForeignKey("Receiver")]
         public int? ReceiverId { get; set; }
         public virtual VATEntity Receiver { get; set; }
+
+        public void Update(VAT source)
+        {
+            Id = source.Id;
+            Name = source.Name;
+
+            ReceiverId = source.ReceiverId;
+            Receiver = source.Receiver;
+
+            IssuerId = source.IssuerId;
+            Issuer = source.Issuer;
+        }
     }
 }

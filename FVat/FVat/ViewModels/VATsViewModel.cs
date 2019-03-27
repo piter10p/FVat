@@ -38,7 +38,15 @@ namespace FVat.ViewModels
 
         protected override async void OnModifyAsync(object parameter)
         {
-            
+            try
+            {
+                if (parameter == null)
+                    throw new ArgumentNullException();
+
+                await DAL.VATsManager.ModifyVATAsync(parameter as VAT);
+                UpdateList();
+            }
+            catch { throw; }
         }
 
         protected override async void OnDeleteAsync(object parameter)
