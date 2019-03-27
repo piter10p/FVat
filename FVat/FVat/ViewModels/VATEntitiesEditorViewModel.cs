@@ -20,7 +20,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.Name = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -34,7 +34,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.Street = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -48,7 +48,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.ParcelNumber = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -62,7 +62,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.PostCode = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -76,7 +76,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.PostCity = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 

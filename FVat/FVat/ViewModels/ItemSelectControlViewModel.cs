@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FVat.ViewModels
 {
-    class ItemSelectControlViewModel
+    class ItemSelectControlViewModel: BaseViewModel
     {
         public Commands.Command SelectionCommand { get; private set; }
         public BasicEntity Entity { get; set;}
@@ -15,7 +15,6 @@ namespace FVat.ViewModels
         public ItemSelectControlViewModel(BasicEntity entity)
         {
             Entity = entity;
-
             SelectionCommand = new Commands.Command(CallSelectionCommand);
         }
 

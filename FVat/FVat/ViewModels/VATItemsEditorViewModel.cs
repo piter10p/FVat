@@ -19,7 +19,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.Name = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -33,7 +33,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.Unit = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -47,7 +47,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.VATRate = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -61,7 +61,7 @@ namespace FVat.ViewModels
             set
             {
                 Item.UnitPrice = value;
-                SaveChanges.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
             }
         }
 

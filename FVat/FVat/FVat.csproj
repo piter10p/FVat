@@ -136,6 +136,7 @@
     <Compile Include="Models\VATItem.cs" />
     <Compile Include="Models\VATRate.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\EditorViewModel.cs" />
     <Compile Include="ViewModels\ItemSelectControlViewModel.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
