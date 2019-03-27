@@ -34,7 +34,7 @@ namespace FVat.Views.Main
             vatContext.VATItemsViewModel = new ViewModels.VATItemsViewModel(typeof(VATItems.VATItemsWindow));
             vatContext.VATItemsViewModel.EditorViewModel = new ViewModels.VATItemsEditorViewModel(typeof(VATItems.VATItemEditorWindow));
 
-            vatContext.EditorViewModel = new ViewModels.VATsEditorViewModel(typeof(VATEditorWindow));
+            vatContext.EditorViewModel = new ViewModels.VATsEditorViewModel(typeof(VATEditorWindow), vatContext.VATEntitiesViewModel);
         }
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)

@@ -20,13 +20,13 @@ namespace FVat.ViewModels
             ActionCommand = new Commands.Command(OnAction, CanExecute);
         }
 
-        public virtual void Show(Action<object> action, object param)
+        public virtual void Show(Action<object> action, object parameter)
         {
             this.action = action;
             ShowOfType(windowType, out window, this);
         }
 
-        public virtual void ShowDialog(Action<object> action, object param)
+        public virtual void ShowDialog(Action<object> action, object parameter)
         {
             this.action = action;
             ShowDialogOfType(windowType, out window, this);

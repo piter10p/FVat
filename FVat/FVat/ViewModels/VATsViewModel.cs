@@ -71,7 +71,7 @@ namespace FVat.ViewModels
 
         protected override bool CanExecuteAction()
         {
-            throw new NotImplementedException();
+            return SelectedItem != null;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace FVat.Views.VATEntities
     /// <summary>
     /// Interaction logic for VATEntitiesWindow.xaml
     /// </summary>
-    public partial class VATEntitiesWindow : Window, Models.IShowable
+    public partial class VATEntitiesWindow : Window, Models.IShowable, Models.IClosable
     {
         public VATEntitiesWindow(object context)
         {

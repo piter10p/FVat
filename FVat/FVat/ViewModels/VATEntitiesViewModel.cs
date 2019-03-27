@@ -60,10 +60,5 @@ namespace FVat.ViewModels
         {
             ItemsList = new ObservableCollection<VATEntity>(DAL.VATEntitiesManager.GetEntities());
         }
-
-        protected override bool CanExecuteAction()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

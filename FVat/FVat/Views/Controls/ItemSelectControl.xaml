@@ -9,7 +9,7 @@
              d:DesignHeight="26" d:DesignWidth="800">
 
     <Grid>
-        <Label Content="{Binding Entity.Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="{Binding EntityName}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Content="Wybierz" Command="{Binding SelectionCommand}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="90" />
     </Grid>
 </UserControl>

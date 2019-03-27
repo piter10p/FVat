@@ -9,7 +9,7 @@
         Title="Edycja Faktury" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg">
     <Grid>
         <Label Content="Numer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Text="{Binding Name, Mode=TwoWay}" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+        <TextBox Text="{Binding Number, Mode=TwoWay}" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
 
         <GroupBox Header="Strony" Margin="10,64,10,0" VerticalAlignment="Top" Height="134">
             <Grid>

@@ -23,9 +23,9 @@ namespace FVat.ViewModels
         public ListViewModel(Type dialogWindowType)
             :base(dialogWindowType)
         {
-            DeleteCommand = new Command(OnDeleteAsync, CanDeleteOrModify);
+            DeleteCommand = new Command(OnDeleteAsync, CanExecuteAction);
             AddCommand = new Command(OnAddCommand);
-            ModifyCommand = new Command(OnModifyCommand, CanDeleteOrModify);
+            ModifyCommand = new Command(OnModifyCommand, CanExecuteAction);
             UpdateList();
         }
 
@@ -41,7 +41,8 @@ namespace FVat.ViewModels
                 _selectedItem = value;
                 DeleteCommand.RaiseCanExecuteChanged();
                 ModifyCommand.RaiseCanExecuteChanged();
-                OnNotifyPropertyChanged("IsItemSelected");
+                ActionCommand.RaiseCanExecuteChanged();
+                OnNotifyPropertyChanged();
             }
         }
 
@@ -59,23 +60,28 @@ namespace FVat.ViewModels
             }
         }
 
-        public bool IsItemSelected
+        public override void Show(Action<object> action, object parameter)
         {
-            get
-            {
-                return SelectedItem != null;
-            }
+            this.action = action;
+            this.SelectedItem = (T)parameter;
+            ActionCommand.RaiseCanExecuteChanged();
+            OnNotifyPropertyChanged("SelectedItem");
+            ShowOfType(windowType, out window, this);
+        }
+
+        public override void ShowDialog(Action<object> action, object parameter)
+        {
+            this.action = action;
+            this.SelectedItem = (T)parameter;
+            ActionCommand.RaiseCanExecuteChanged();
+            OnNotifyPropertyChanged("SelectedItem");
+            ShowDialogOfType(windowType, out window, this);
         }
 
         protected abstract void OnDeleteAsync(object parameter);
         protected abstract void OnAddAsync(object parameter);
         protected abstract void OnModifyAsync(object parameter);
         protected abstract void UpdateList();
-
-        private bool CanDeleteOrModify()
-        {
-            return IsItemSelected;
-        }
 
         private void OnAddCommand(object parameter)
         {
@@ -86,6 +92,13 @@ namespace FVat.ViewModels
         private void OnModifyCommand(object parameter)
         {
             EditorViewModel.Show(OnModifyAsync, SelectedItem);
+        }
+
+        protected override bool CanExecuteAction()
+        {
+            if (SelectedItem == null)
+                return false;
+            return true;
         }
     }
 }

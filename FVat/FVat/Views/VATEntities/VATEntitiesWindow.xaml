@@ -9,7 +9,7 @@
         Title="Strony Faktur" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen" MinWidth="400" MinHeight="200">
 
     <Grid>
-        <DataGrid Margin="0,0,0,35" ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False" >
+        <DataGrid Margin="0,0,0,35" ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn MinWidth="150" Header="Nazwa" Width="1*" Binding="{Binding Name}" IsReadOnly="True" SortDirection="Ascending" />
                 <DataGridTextColumn MinWidth="150" Header="Adres" Width="1*" Binding="{Binding FullAddressFormatted}" IsReadOnly="True" />

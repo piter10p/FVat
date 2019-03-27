@@ -11,7 +11,7 @@ namespace FVat.ViewModels
     {
         private T _item;
 
-        public void Show(Action<object> saveAction, T item)
+        public virtual void Show(Action<object> saveAction, T item)
         {
             Item = item;
             action = saveAction;

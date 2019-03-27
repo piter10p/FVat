@@ -58,10 +58,5 @@ namespace FVat.ViewModels
         {
             ItemsList = new ObservableCollection<VATItem>(DAL.VATItemsManager.GetItems());
         }
-
-        protected override bool CanExecuteAction()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

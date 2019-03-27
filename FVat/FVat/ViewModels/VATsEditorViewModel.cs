@@ -9,29 +9,52 @@ namespace FVat.ViewModels
 {
     sealed class VATsEditorViewModel: EditorViewModel<VAT>
     {
-        public VATsEditorViewModel(Type editorWindowType)
+        public VATsEditorViewModel(Type editorWindowType, VATEntitiesViewModel vatEntitiesViewModel)
             : base(editorWindowType)
         {
-            CreateControlViewsModels();
-        }
-
-        private void CreateControlViewsModels()
-        {
-            IssuerControlViewModel = new ItemSelectControlViewModel(Item);
-            ReceiverControlViewModel = new ItemSelectControlViewModel(Item);
-        }
-
-        private void OpenIssuerSelectDialog()
-        {
-            System.Windows.MessageBox.Show("Issuer");
-        }
-
-        private void OpenReceiverSelectDialog()
-        {
-            System.Windows.MessageBox.Show("Receiver");
+            CreateControlViewsModels(vatEntitiesViewModel);
         }
 
         public ItemSelectControlViewModel IssuerControlViewModel { get; private set; }
         public ItemSelectControlViewModel ReceiverControlViewModel { get; private set; }
+
+        public override void Show(Action<object> saveAction, VAT item)
+        {
+            Item = item;
+            action = saveAction;
+            IssuerControlViewModel.Entity = Item.Issuer;
+            ReceiverControlViewModel.Entity = Item.Receiver;
+            ShowDialogOfType(windowType, out window, this);
+        }
+
+        public string Number
+        {
+            get
+            {
+                return Item.Name;
+            }
+
+            set
+            {
+                Item.Name = value;
+                ActionCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        private void CreateControlViewsModels(VATEntitiesViewModel vatEntitiesViewModel)
+        {
+            IssuerControlViewModel = new ItemSelectControlViewModel(vatEntitiesViewModel, UpdateIssuer);
+            ReceiverControlViewModel = new ItemSelectControlViewModel(vatEntitiesViewModel, UpdateReceiver);
+        }
+
+        private void UpdateIssuer(BasicEntity entity)
+        {
+            Item.Issuer = entity as VATEntity;
+        }
+
+        private void UpdateReceiver(BasicEntity entity)
+        {
+            Item.Receiver = entity as VATEntity;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace FVat.Views.VATItems
     /// <summary>
     /// Interaction logic for VATItemsWindow.xaml
     /// </summary>
-    public partial class VATItemsWindow : Window, Models.IShowable
+    public partial class VATItemsWindow : Window, Models.IShowable, Models.IClosable
     {
         public VATItemsWindow(object context)
         {
