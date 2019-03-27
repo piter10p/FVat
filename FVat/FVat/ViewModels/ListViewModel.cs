@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FVat.ViewModels
 {
-    abstract class ListViewModel<T>: BaseViewModel
+    abstract class ListViewModel<T>: DialogViewModel
     {
         private T _selectedItem;
         private ObservableCollection<T> _list;
@@ -20,7 +20,8 @@ namespace FVat.ViewModels
 
         public EditorViewModel<T> EditorViewModel { get; set; }
 
-        public ListViewModel()
+        public ListViewModel(Type dialogWindowType)
+            :base(dialogWindowType)
         {
             DeleteCommand = new Command(OnDeleteAsync, CanDeleteOrModify);
             AddCommand = new Command(OnAddCommand);

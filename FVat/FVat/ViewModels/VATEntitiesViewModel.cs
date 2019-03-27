@@ -12,8 +12,8 @@ namespace FVat.ViewModels
 {
     sealed class VATEntitiesViewModel: ListViewModel<VATEntity>
     {
-        public VATEntitiesViewModel()
-            :base()
+        public VATEntitiesViewModel(Type dialogWindowType)
+            :base(dialogWindowType)
         {
         }
 
@@ -59,6 +59,11 @@ namespace FVat.ViewModels
         protected override void UpdateList()
         {
             ItemsList = new ObservableCollection<VATEntity>(DAL.VATEntitiesManager.GetEntities());
+        }
+
+        protected override bool CanExecuteAction()
+        {
+            throw new NotImplementedException();
         }
     }
 }

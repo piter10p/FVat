@@ -7,9 +7,6 @@
         xmlns:viewModel="clr-namespace:FVat.ViewModels"
         mc:Ignorable="d"
         Title="Przedmioty Faktur" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <viewModel:VATItemsViewModel />
-    </Window.DataContext>
 
     <Grid>
         <DataGrid Margin="0,0,0,35" ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False" >
@@ -23,5 +20,6 @@
         <Button Content="Usuń" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
         <Button Content="Modyfikuj" Command="{Binding ModifyCommand}" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
         <Button Content="Dodaj" Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
+        <Button Content="Wybierz" Command="{Binding ActionCommand}" CommandParameter="{Binding SelectedItem}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Margin="10,0,0,10" />
     </Grid>
 </Window>

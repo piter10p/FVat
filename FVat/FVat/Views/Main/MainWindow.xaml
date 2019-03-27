@@ -10,10 +10,6 @@
         Title="Fvat" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg"
         Closing="Window_Closing">
 
-    <Window.DataContext>
-        <viewModel:VATsViewModel />
-    </Window.DataContext>
-
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">

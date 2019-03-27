@@ -17,16 +17,30 @@ namespace FVat.ViewModels
         public DialogViewModel(Type windowType)
         {
             this.windowType = windowType;
-            ActionCommand = new Commands.Command(OnAction, CanExecuteAction);
+            ActionCommand = new Commands.Command(OnAction, CanExecute);
         }
 
         public virtual void Show(Action<object> action, object param)
+        {
+            this.action = action;
+            ShowOfType(windowType, out window, this);
+        }
+
+        public virtual void ShowDialog(Action<object> action, object param)
         {
             this.action = action;
             ShowDialogOfType(windowType, out window, this);
         }
 
         protected abstract bool CanExecuteAction();
+
+        private bool CanExecute()
+        {
+            if (action == null)
+                return false;
+
+            return CanExecuteAction();
+        }
 
         private void OnAction(object parameter)
         {

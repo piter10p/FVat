@@ -10,8 +10,8 @@ namespace FVat.ViewModels
 {
     sealed class VATItemsViewModel : ListViewModel<VATItem>
     {
-        public VATItemsViewModel()
-            : base()
+        public VATItemsViewModel(Type dialogWindowType)
+            : base(dialogWindowType)
         {
         }
 
@@ -57,6 +57,11 @@ namespace FVat.ViewModels
         protected override void UpdateList()
         {
             ItemsList = new ObservableCollection<VATItem>(DAL.VATItemsManager.GetItems());
+        }
+
+        protected override bool CanExecuteAction()
+        {
+            throw new NotImplementedException();
         }
     }
 }

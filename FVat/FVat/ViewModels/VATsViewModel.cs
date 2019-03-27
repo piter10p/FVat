@@ -10,15 +10,15 @@ namespace FVat.ViewModels
 {
     class VATsViewModel : ListViewModel<VAT>
     {
-        public VATsViewModel()
-            : base()
+        public VATsViewModel(Type dialogWindowType)
+            : base(dialogWindowType)
         {
             ShowVATItemsWindow = new Commands.Command(OnShowVATItemsWindow);
             ShowVATEntitiesWindow = new Commands.Command(OnShowVATEntitiesWindow);
         }
 
-        public Type VATItemsWindowType { get; set; }
-        public Type VATEntitiesWindowType { get; set; }
+        public VATEntitiesViewModel VATEntitiesViewModel { get; set; }
+        public VATItemsViewModel VATItemsViewModel { get; set; }
 
         public Commands.Command ShowVATItemsWindow { get; private set; }
         public Commands.Command ShowVATEntitiesWindow { get; private set; }
@@ -61,14 +61,17 @@ namespace FVat.ViewModels
 
         private void OnShowVATItemsWindow(object parameter)
         {
-            Models.IClosable closable;
-            ShowDialogOfType(VATItemsWindowType, out closable);
+            VATItemsViewModel.ShowDialog(null, null);
         }
 
         private void OnShowVATEntitiesWindow(object parameter)
         {
-            Models.IClosable closable;
-            ShowDialogOfType(VATEntitiesWindowType, out closable);
+            VATEntitiesViewModel.ShowDialog(null, null);
+        }
+
+        protected override bool CanExecuteAction()
+        {
+            throw new NotImplementedException();
         }
     }
 }

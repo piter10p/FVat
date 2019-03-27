@@ -19,12 +19,10 @@ namespace FVat.Views.VATItems
     /// </summary>
     public partial class VATItemsWindow : Window, Models.IShowable
     {
-        public VATItemsWindow()
+        public VATItemsWindow(object context)
         {
             InitializeComponent();
-
-            var context = DataContext as ViewModels.VATItemsViewModel;
-            context.EditorViewModel = new ViewModels.VATItemsEditorViewModel(typeof(VATItemEditorWindow));
+            DataContext = context;
         }
     }
 }

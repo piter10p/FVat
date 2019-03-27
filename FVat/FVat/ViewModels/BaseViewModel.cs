@@ -66,5 +66,19 @@ namespace FVat.ViewModels
             closable = window as IClosable;
             window.ShowDialog();
         }
+
+        protected void ShowOfType(Type iShowableType, out IClosable closable)
+        {
+            var window = Activator.CreateInstance(iShowableType) as IShowable;
+            closable = window as IClosable;
+            window.Show();
+        }
+
+        protected void ShowOfType(Type iShowableType, out IClosable closable, object dataContext)
+        {
+            var window = Activator.CreateInstance(iShowableType, dataContext) as IShowable;
+            closable = window as IClosable;
+            window.Show();
+        }
     }
 }

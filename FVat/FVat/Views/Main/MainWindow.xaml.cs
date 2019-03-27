@@ -17,19 +17,24 @@ namespace FVat.Views.Main
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, Models.IShowable, Models.IClosable
     {
         private AboutWindow AboutWindow = null;
 
-        public MainWindow()
+        public MainWindow(object context)
         {
             InitializeComponent();
+            DataContext = context;
 
-            var context = DataContext as ViewModels.VATsViewModel;
+            var vatContext = DataContext as ViewModels.VATsViewModel;
 
-            context.VATItemsWindowType = typeof(VATItems.VATItemsWindow);
-            context.VATEntitiesWindowType = typeof(VATEntities.VATEntitiesWindow);
-            context.EditorViewModel = new ViewModels.VATsEditorViewModel(typeof(VATEditorWindow));
+            vatContext.VATEntitiesViewModel = new ViewModels.VATEntitiesViewModel(typeof(VATEntities.VATEntitiesWindow));
+            vatContext.VATEntitiesViewModel.EditorViewModel = new ViewModels.VATEntitiesEditorViewModel(typeof(VATEntities.VATEntityEditorWindow));
+
+            vatContext.VATItemsViewModel = new ViewModels.VATItemsViewModel(typeof(VATItems.VATItemsWindow));
+            vatContext.VATItemsViewModel.EditorViewModel = new ViewModels.VATItemsEditorViewModel(typeof(VATItems.VATItemEditorWindow));
+
+            vatContext.EditorViewModel = new ViewModels.VATsEditorViewModel(typeof(VATEditorWindow));
         }
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)

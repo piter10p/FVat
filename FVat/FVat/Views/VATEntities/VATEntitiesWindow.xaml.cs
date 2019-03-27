@@ -19,12 +19,10 @@ namespace FVat.Views.VATEntities
     /// </summary>
     public partial class VATEntitiesWindow : Window, Models.IShowable
     {
-        public VATEntitiesWindow()
+        public VATEntitiesWindow(object context)
         {
             InitializeComponent();
-
-            var context = DataContext as ViewModels.VATEntitiesViewModel;
-            context.EditorViewModel = new ViewModels.VATEntitiesEditorViewModel(typeof(VATEntityEditorWindow));
+            DataContext = context;
         }
     }
 }

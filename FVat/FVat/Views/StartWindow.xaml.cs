@@ -27,8 +27,8 @@ namespace FVat.Views
 
         private void DoubleAnimation_Completed(object sender, EventArgs e)
         {
-            var mainWindow = new Main.MainWindow();
-            mainWindow.Show();
+            var vm = new ViewModels.VATsViewModel(typeof(Main.MainWindow));
+            vm.Show(null, null);
             this.Close();
         }
     }
