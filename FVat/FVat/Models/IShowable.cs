@@ -9,5 +9,6 @@ namespace FVat.Models
     interface IShowable
     {
         void Show();
+        Nullable<bool> ShowDialog();
     }
 }

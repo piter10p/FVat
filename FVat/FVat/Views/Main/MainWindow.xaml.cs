@@ -20,12 +20,16 @@ namespace FVat.Views.Main
     public partial class MainWindow : Window
     {
         private AboutWindow AboutWindow = null;
-        private VATEntities.VATEntitiesWindow VATEntitiesWindow = null;
-        private VATItems.VATItemsWindow VATItemsWindow = null;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            var context = DataContext as ViewModels.VATsViewModel;
+
+            context.VATItemsWindowType = typeof(VATItems.VATItemsWindow);
+            context.VATEntitiesWindowType = typeof(VATEntities.VATEntitiesWindow);
+            context.EditorViewModel = new ViewModels.VATsEditorViewModel(typeof(VATEditorWindow));
         }
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
@@ -42,48 +46,6 @@ namespace FVat.Views.Main
         {
             if (AboutWindow != null)
                 AboutWindow.Close();
-
-            if (VATEntitiesWindow != null)
-                VATEntitiesWindow.Close();
-
-            if (VATItemsWindow != null)
-                VATItemsWindow.Close();
-        }
-
-        private void NewVATMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            var newVatWindow = new NewVAT.NewVATWindow();
-            newVatWindow.ShowDialog();
-        }
-
-        private void VATEntitiesListMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            if (VATEntitiesWindow == null)
-            {
-                VATEntitiesWindow = new VATEntities.VATEntitiesWindow();
-                VATEntitiesWindow.Closed += (x, y) => { VATEntitiesWindow = null; };
-                VATEntitiesWindow.Show();
-            }
-        }
-
-        private void VATItemsMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            if (VATItemsWindow == null)
-            {
-                VATItemsWindow = new VATItems.VATItemsWindow();
-                VATItemsWindow.Closed += (x, y) => { VATItemsWindow = null; };
-                VATItemsWindow.Show();
-            }
-        }
-
-        private void ModifyItemButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

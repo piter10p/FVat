@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FVat.Views.VATEntities
+namespace FVat.Views.Controls
 {
     /// <summary>
-    /// Interaction logic for VATEntityEditorWindow.xaml
+    /// Interaction logic for ItemSelectControl.xaml
     /// </summary>
-    public partial class VATEntityEditorWindow: Window, Models.IClosable, Models.IShowable
+    public partial class ItemSelectControl : UserControl
     {
-        public VATEntityEditorWindow(object viewModel)
+        public ItemSelectControl()
         {
             InitializeComponent();
-            DataContext = viewModel;
         }
     }
 }

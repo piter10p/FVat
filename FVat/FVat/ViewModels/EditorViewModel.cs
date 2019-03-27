@@ -10,8 +10,18 @@ namespace FVat.ViewModels
     abstract class EditorViewModel<T>: BaseViewModel
     {
         private T _item;
+        private Type editorWindowType;
+        private Models.IClosable window;
+        private Action<object> saveAction;
 
         public Commands.Command SaveChanges { get; private set; }
+
+        public void Show(Action<object> saveAction, T item)
+        {
+            Item = item;
+            this.saveAction = saveAction;
+            ShowDialogOfType(editorWindowType, out window, this);
+        }
 
         public T Item
         {
@@ -26,10 +36,10 @@ namespace FVat.ViewModels
             }
         }
 
-        public EditorViewModel(Action<object> saveAction, T item)
+        public EditorViewModel(Type editorWindowType)
         {
-            _item = item;
-            SaveChanges = new Commands.Command(saveAction, CanSave);
+            this.editorWindowType = editorWindowType;
+            SaveChanges = new Commands.Command(OnSaveChanges, CanSave);
         }
 
         private bool CanSave()
@@ -40,6 +50,12 @@ namespace FVat.ViewModels
             if (Validator.TryValidateObject(Item, context, results))
                 return true;
             return false;
+        }
+
+        private void OnSaveChanges(object parameter)
+        {
+            saveAction(Item);
+            window.Close();
         }
     }
 }

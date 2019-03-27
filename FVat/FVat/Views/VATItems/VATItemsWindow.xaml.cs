@@ -17,25 +17,14 @@ namespace FVat.Views.VATItems
     /// <summary>
     /// Interaction logic for VATItemsWindow.xaml
     /// </summary>
-    public partial class VATItemsWindow : Window
+    public partial class VATItemsWindow : Window, Models.IShowable
     {
         public VATItemsWindow()
         {
             InitializeComponent();
-        }
 
-        private void ModifyItemButton_Click(object sender, RoutedEventArgs e)
-        {
-            var context = (ViewModels.VATItemsViewModel)DataContext;
-            var win = new VATItemEditorWindow(new ViewModels.VATItemsEditorViewModel(context.ModifyItem, context.SelectedItem));
-            win.ShowDialog();
-        }
-
-        private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
-        {
-            var context = (ViewModels.VATItemsViewModel)DataContext;
-            var win = new VATItemEditorWindow(new ViewModels.VATItemsEditorViewModel(context.AddNewItem));
-            win.ShowDialog();
+            var context = DataContext as ViewModels.VATItemsViewModel;
+            context.EditorViewModel = new ViewModels.VATItemsEditorViewModel(typeof(VATItemEditorWindow));
         }
     }
 }

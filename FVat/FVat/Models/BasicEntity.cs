@@ -10,6 +10,8 @@ namespace FVat.Models
 {
     abstract class BasicEntity: IEntity, INameable
     {
+        public BasicEntity() { }
+
         [Key]
         public int Id { get; set; }
 

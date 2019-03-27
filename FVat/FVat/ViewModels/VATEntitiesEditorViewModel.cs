@@ -80,13 +80,8 @@ namespace FVat.ViewModels
             }
         }
 
-        public VATEntitiesEditorViewModel(Action<object> saveAction)
-            :base(saveAction, new VATEntity())
-        {
-        }
-
-        public VATEntitiesEditorViewModel(Action<object> saveAction, VATEntity entity)
-            :base(saveAction, entity)
+        public VATEntitiesEditorViewModel(Type editorWindowType)
+            :base(editorWindowType)
         {
         }
     }

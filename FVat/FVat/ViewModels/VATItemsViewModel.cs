@@ -15,7 +15,7 @@ namespace FVat.ViewModels
         {
         }
 
-        public async void AddNewItem(object parameter)
+        protected override async void OnAddAsync(object parameter)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace FVat.ViewModels
             catch { throw; }
         }
 
-        public async void ModifyItem(object parameter)
+        protected override async void OnModifyAsync(object parameter)
         {
             try
             {

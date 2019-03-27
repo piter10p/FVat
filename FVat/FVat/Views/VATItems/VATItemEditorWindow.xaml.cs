@@ -18,17 +18,12 @@ namespace FVat.Views.VATItems
     /// Interaction logic for VATItemEditorWindow.xaml
     /// </summary>
     ///
-    public partial class VATItemEditorWindow : Window
+    public partial class VATItemEditorWindow : Window, Models.IShowable, Models.IClosable
     {
         public VATItemEditorWindow(object viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
-        }
-
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

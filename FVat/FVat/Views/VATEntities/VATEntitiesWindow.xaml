@@ -20,8 +20,8 @@
         </DataGrid>
         
         <Button Content="Usuń" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
-        <Button x:Name="ModifyEntityButton" Click="ModifyEntityButton_Click" IsEnabled="{Binding IsItemSelected}" Content="Modyfikuj" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
-        <Button x:Name="AddNewEntityButton" Click="AddNewEntityButton_Click" Content="Dodaj" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
+        <Button Content="Modyfikuj" Command="{Binding ModifyCommand}" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
+        <Button Content="Dodaj" Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
         <Button Content="Wybierz" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" IsEnabled="False"/>
     </Grid>
 </Window>

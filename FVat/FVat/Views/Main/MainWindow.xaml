@@ -17,9 +17,9 @@
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
-                <MenuItem x:Name="NewVATMenuItem" Header="Nowa faktura" Click="NewVATMenuItem_Click"/>
-                <MenuItem x:Name="VATEntitiesMenuItem" Header="Strony faktur" Click="VATEntitiesListMenuItem_Click" />
-                <MenuItem x:Name="VATItemsMenuItem" Click="VATItemsMenuItem_Click" Header="Przedmioty faktur" />
+                <MenuItem Header="Nowa faktura"/>
+                <MenuItem Header="Strony faktur" Command="{Binding ShowVATEntitiesWindow}" />
+                <MenuItem Header="Przedmioty faktur" Command="{Binding ShowVATItemsWindow}" />
                 <MenuItem x:Name="AboutMenuItem" Header="O programie" Click="AboutMenuItem_Click"/>
             </Menu>
             <Grid>
@@ -39,8 +39,8 @@
                 </DataGrid>
                 <Grid Grid.Column="2">
                     <Button Content="Usuń" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
-                    <Button x:Name="ModifyItemButton" Click="ModifyItemButton_Click" IsEnabled="{Binding IsItemSelected}" Content="Modyfikuj" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
-                    <Button x:Name="AddNewItemButton" Click="AddNewItemButton_Click" Content="Dodaj" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
+                    <Button Content="Modyfikuj" Command="{Binding ModifyCommand}" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
+                    <Button Content="Dodaj" Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
                 </Grid>
             </Grid>
         </DockPanel>

@@ -137,17 +137,25 @@
     <Compile Include="Models\VATRate.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\EditorViewModel.cs" />
+    <Compile Include="ViewModels\ItemSelectControlViewModel.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesEditorViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
     <Compile Include="ViewModels\VATItemsEditorViewModel.cs" />
     <Compile Include="ViewModels\VATItemsViewModel.cs" />
+    <Compile Include="ViewModels\VATsEditorViewModel.cs" />
     <Compile Include="ViewModels\VATsViewModel.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\ItemSelectControl.xaml.cs">
+      <DependentUpon>ItemSelectControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\VATEditorWindow.xaml.cs">
+      <DependentUpon>VATEditorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewVAT\NewVATWindow.xaml.cs">
       <DependentUpon>NewVATWindow.xaml</DependentUpon>
@@ -178,7 +186,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Controls\ItemSelectControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Main\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\VATEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

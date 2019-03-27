@@ -65,13 +65,8 @@ namespace FVat.ViewModels
             }
         }
 
-        public VATItemsEditorViewModel(Action<object> saveAction)
-            : base(saveAction, new VATItem())
-        {
-        }
-
-        public VATItemsEditorViewModel(Action<object> saveAction, VATItem item)
-            : base(saveAction, item)
+        public VATItemsEditorViewModel(Type editorWindowType)
+            : base(editorWindowType)
         {
         }
     }

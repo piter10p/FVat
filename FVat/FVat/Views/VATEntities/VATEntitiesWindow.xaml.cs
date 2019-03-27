@@ -17,25 +17,14 @@ namespace FVat.Views.VATEntities
     /// <summary>
     /// Interaction logic for VATEntitiesWindow.xaml
     /// </summary>
-    public partial class VATEntitiesWindow : Window
+    public partial class VATEntitiesWindow : Window, Models.IShowable
     {
         public VATEntitiesWindow()
         {
             InitializeComponent();
-        }
 
-        private void AddNewEntityButton_Click(object sender, RoutedEventArgs e)
-        {
-            var context = (ViewModels.VATEntitiesViewModel)DataContext;
-            var win = new VATEntityEditorWindow(new ViewModels.VATEntitiesEditorViewModel(context.AddNewEntity));
-            win.ShowDialog();
-        }
-
-        private void ModifyEntityButton_Click(object sender, RoutedEventArgs e)
-        {
-            var context = (ViewModels.VATEntitiesViewModel)DataContext;
-            var win = new VATEntityEditorWindow(new ViewModels.VATEntitiesEditorViewModel(context.ModifyEntity, context.SelectedItem));
-            win.ShowDialog();
+            var context = DataContext as ViewModels.VATEntitiesViewModel;
+            context.EditorViewModel = new ViewModels.VATEntitiesEditorViewModel(typeof(VATEntityEditorWindow));
         }
     }
 }

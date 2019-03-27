@@ -52,5 +52,19 @@ namespace FVat.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(memberName));
             }
         }
+
+        protected void ShowDialogOfType(Type iShowableType, out IClosable closable)
+        {
+            var window = Activator.CreateInstance(iShowableType) as IShowable;
+            closable = window as IClosable;
+            window.ShowDialog();
+        }
+
+        protected void ShowDialogOfType(Type iShowableType, out IClosable closable, object dataContext)
+        {
+            var window = Activator.CreateInstance(iShowableType, dataContext) as IShowable;
+            closable = window as IClosable;
+            window.ShowDialog();
+        }
     }
 }

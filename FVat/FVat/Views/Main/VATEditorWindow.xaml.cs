@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FVat.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FVat.Views.VATEntities
+namespace FVat.Views.Main
 {
     /// <summary>
-    /// Interaction logic for VATEntityEditorWindow.xaml
+    /// Interaction logic for VATEditorWindow.xaml
     /// </summary>
-    public partial class VATEntityEditorWindow: Window, Models.IClosable, Models.IShowable
+    public partial class VATEditorWindow : Window, Models.IClosable, Models.IShowable
     {
-        public VATEntityEditorWindow(object viewModel)
+        public VATEditorWindow(object viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
