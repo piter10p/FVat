@@ -43,6 +43,9 @@ namespace FVat.Models
         [Required]
         public PaymentMethod PaymentMethod { get; set; }
 
+        [Required]
+        public DeliveryMethod DeliveryMethod { get; set; }
+
         public void Update(VAT source)
         {
             Id = source.Id;

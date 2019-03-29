@@ -48,6 +48,11 @@
                   ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type models:PaymentMethod}}}"
                   SelectedItem="{Binding PaymentMethod, Mode=TwoWay}" />
 
+        <Label Content="Sposób dostawy" HorizontalAlignment="Left" Margin="10,522,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,526,10,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type models:DeliveryMethod}}}"
+                  SelectedItem="{Binding DeliveryMethod, Mode=TwoWay}" />
+
         <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane są pola: Numer, Data wystawienia, Data sprzedaży/wykonania usługi, Sposób płatności" />
     </Grid>
 </Window>

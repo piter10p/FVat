@@ -68,7 +68,7 @@ namespace FVat.Migrations
             if (entities.Length < 2)
                 throw new Exception("Not enough entities in DB.");
 
-            var testVAT1 = new Models.VAT() { Name = "Test Vat 1", IssuerId = entities[0].Id, ReceiverId = entities[1].Id, DateOfIssue = DateTime.Now, DateOfService = DateTime.Now, PaymentMethod = Models.PaymentMethod.Online };
+            var testVAT1 = new Models.VAT() { Name = "Test Vat 1", IssuerId = entities[0].Id, ReceiverId = entities[1].Id, DateOfIssue = DateTime.Now, DateOfService = DateTime.Now, PaymentMethod = Models.PaymentMethod.Online, DeliveryMethod = Models.DeliveryMethod.Courier };
 
             if (!context.VATs.Any(e => e.Name == testVAT1.Name))
                 context.VATs.Add(testVAT1);

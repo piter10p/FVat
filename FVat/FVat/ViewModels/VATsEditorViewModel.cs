@@ -96,6 +96,20 @@ namespace FVat.ViewModels
             }
         }
 
+        public DeliveryMethod DeliveryMethod
+        {
+            get
+            {
+                return Item.DeliveryMethod;
+            }
+
+            set
+            {
+                Item.DeliveryMethod = value;
+                ActionCommand.RaiseCanExecuteChanged();
+            }
+        }
+
         public object AsyncHelpers { get; private set; }
 
         private void CreateViewModels(VATEntitiesViewModel vatEntitiesViewModel)
