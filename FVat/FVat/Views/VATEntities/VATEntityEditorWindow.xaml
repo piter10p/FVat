@@ -45,6 +45,6 @@
             </Grid>
         </GroupBox>
 
-        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
+        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane pola: Nazwa, Adres" />
     </Grid>
 </Window>

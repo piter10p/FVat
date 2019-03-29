@@ -23,7 +23,7 @@
 
         <Label Content="Przedmioty" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button Command="{Binding OpenItemsOfVATsEditor}" ToolTipService.ShowOnDisabled="True" ToolTip="Dodać przedmioty można tylko w trakcie modyfikacji istniejącej faktury" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Wybierz" Margin="0,206,10,0" Height="21" Width="126" />
-        
-        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
+
+        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane jest pole Numer" />
     </Grid>
 </Window>

@@ -15,6 +15,6 @@
         <Label Content="Ilość" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Text="{Binding Amount, Mode=TwoWay}" Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
 
-        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
+        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane są wszystkie pola" />
     </Grid>
 </Window>
