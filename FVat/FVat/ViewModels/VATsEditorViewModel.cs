@@ -82,6 +82,20 @@ namespace FVat.ViewModels
             }
         }
 
+        public PaymentMethod PaymentMethod
+        {
+            get
+            {
+                return Item.PaymentMethod;
+            }
+
+            set
+            {
+                Item.PaymentMethod = value;
+                ActionCommand.RaiseCanExecuteChanged();
+            }
+        }
+
         public object AsyncHelpers { get; private set; }
 
         private void CreateViewModels(VATEntitiesViewModel vatEntitiesViewModel)

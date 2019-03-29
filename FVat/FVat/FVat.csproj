@@ -131,6 +131,10 @@
     <Compile Include="Migrations\201903291621220_Added-Dates-To-VATs-Table.Designer.cs">
       <DependentUpon>201903291621220_Added-Dates-To-VATs-Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291735054_Added-PaymentMethod-In-VATs-Table.cs" />
+    <Compile Include="Migrations\201903291735054_Added-PaymentMethod-In-VATs-Table.Designer.cs">
+      <DependentUpon>201903291735054_Added-PaymentMethod-In-VATs-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\BasicEntity.cs" />
@@ -140,6 +144,7 @@
     <Compile Include="Models\INameable.cs" />
     <Compile Include="Models\ItemOfVAT.cs" />
     <Compile Include="Models\IUpdateable.cs" />
+    <Compile Include="Models\PaymentMethod.cs" />
     <Compile Include="Models\Unit.cs" />
     <Compile Include="Models\VAT.cs" />
     <Compile Include="Models\VATEntity.cs" />
@@ -300,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903291621220_Added-Dates-To-VATs-Table.resx">
       <DependentUpon>201903291621220_Added-Dates-To-VATs-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291735054_Added-PaymentMethod-In-VATs-Table.resx">
+      <DependentUpon>201903291735054_Added-PaymentMethod-In-VATs-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

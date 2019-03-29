@@ -40,6 +40,9 @@ namespace FVat.Models
         [DataType(DataType.Date)]
         public DateTime? PaymentTermDate { get; set; }
 
+        [Required]
+        public PaymentMethod PaymentMethod { get; set; }
+
         public void Update(VAT source)
         {
             Id = source.Id;

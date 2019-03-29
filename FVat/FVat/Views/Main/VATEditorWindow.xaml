@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FVat.Views.Main"
+        xmlns:extensions="clr-namespace:FVat.Extensions"
+        xmlns:models="clr-namespace:FVat.Models"
         xmlns:crls="clr-namespace:FVat.Views.Controls"
         mc:Ignorable="d"
-        Title="Edycja Faktury" Height="571" Width="800" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg" MinWidth="300">
+        Title="Edycja Faktury" Height="745" Width="800" MinWidth="300"
+        WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg">
     <Grid>
         <Label Content="Numer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Text="{Binding Number, Mode=TwoWay}" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
@@ -39,8 +42,12 @@
                 <DatePicker SelectedDate="{Binding Item.PaymentTermDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,201,0,0" />
             </Grid>
         </GroupBox>
-        
 
-        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane są pola: Numer, Data wystawienia, Data sprzedaży/wykonania usługi" />
+        <Label Content="Sposób płatności" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,495,10,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type models:PaymentMethod}}}"
+                  SelectedItem="{Binding PaymentMethod, Mode=TwoWay}" />
+
+        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane są pola: Numer, Data wystawienia, Data sprzedaży/wykonania usługi, Sposób płatności" />
     </Grid>
 </Window>
