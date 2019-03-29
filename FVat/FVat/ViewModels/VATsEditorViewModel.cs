@@ -54,6 +54,34 @@ namespace FVat.ViewModels
             }
         }
 
+        public DateTime DateOfIssue
+        {
+            get
+            {
+                return Item.DateOfIssue;
+            }
+
+            set
+            {
+                Item.DateOfIssue = value;
+                ActionCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public DateTime DateOfService
+        {
+            get
+            {
+                return Item.DateOfService;
+            }
+
+            set
+            {
+                Item.DateOfService = value;
+                ActionCommand.RaiseCanExecuteChanged();
+            }
+        }
+
         public object AsyncHelpers { get; private set; }
 
         private void CreateViewModels(VATEntitiesViewModel vatEntitiesViewModel)

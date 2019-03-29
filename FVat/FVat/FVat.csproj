@@ -127,6 +127,10 @@
     <Compile Include="Migrations\201903281406235_Added-ItemsOfVATs-Table.Designer.cs">
       <DependentUpon>201903281406235_Added-ItemsOfVATs-Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291621220_Added-Dates-To-VATs-Table.cs" />
+    <Compile Include="Migrations\201903291621220_Added-Dates-To-VATs-Table.Designer.cs">
+      <DependentUpon>201903291621220_Added-Dates-To-VATs-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\BasicEntity.cs" />
@@ -293,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903281406235_Added-ItemsOfVATs-Table.resx">
       <DependentUpon>201903281406235_Added-ItemsOfVATs-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291621220_Added-Dates-To-VATs-Table.resx">
+      <DependentUpon>201903291621220_Added-Dates-To-VATs-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

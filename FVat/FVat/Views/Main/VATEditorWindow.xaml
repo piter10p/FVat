@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FVat.Views.Main"
         xmlns:crls="clr-namespace:FVat.Views.Controls"
         mc:Ignorable="d"
-        Title="Edycja Faktury" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg" MinHeight="450" MaxHeight="450" MinWidth="300">
+        Title="Edycja Faktury" Height="571" Width="800" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg" MinWidth="300">
     <Grid>
         <Label Content="Numer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Text="{Binding Number, Mode=TwoWay}" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
@@ -24,6 +24,23 @@
         <Label Content="Przedmioty" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button Command="{Binding OpenItemsOfVATsEditor}" ToolTipService.ShowOnDisabled="True" ToolTip="Dodać przedmioty można tylko w trakcie modyfikacji istniejącej faktury" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Wybierz" Margin="0,206,10,0" Height="21" Width="126" />
 
-        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane jest pole Numer" />
+        <GroupBox Header="Daty" VerticalAlignment="Top" Margin="10,234,10,0" Height="252">
+            <Grid>
+                <Label Content="Data wystawienia" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <DatePicker SelectedDate ="{Binding DateOfIssue, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,36,0,0" />
+
+                <Label Content="Data sprzedaży/wykonania usługi" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <DatePicker SelectedDate="{Binding DateOfService, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,91,0,0" />
+
+                <Label Content="Data opłacenia" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <DatePicker SelectedDate="{Binding Item.DateOfPayment, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,146,0,0" />
+
+                <Label Content="Termin opłacenia" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <DatePicker SelectedDate="{Binding Item.PaymentTermDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,201,0,0" />
+            </Grid>
+        </GroupBox>
+        
+
+        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" ToolTipService.ShowOnDisabled="True" ToolTip="Wymagane są pola: Numer, Data wystawienia, Data sprzedaży/wykonania usługi" />
     </Grid>
 </Window>

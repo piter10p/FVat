@@ -28,6 +28,7 @@
                 <DataGrid ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="Numer" Width="2*" Binding="{Binding Name}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Data wystawienia" Width="1*" Binding="{Binding DateOfIssueText}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Wydający" Width="1*" Binding="{Binding Issuer.Name}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Odbierający" Width="1*" Binding="{Binding Receiver.Name}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Kwota brutto" Width="1*" />

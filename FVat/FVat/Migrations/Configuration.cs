@@ -14,7 +14,11 @@ namespace FVat.Migrations
 
         protected override void Seed(FVat.DAL.AppDBContext context)
         {
+            //if (!System.Diagnostics.Debugger.IsAttached)
+                //System.Diagnostics.Debugger.Launch();
+
             FillDataBaseWithTestData(context);
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -64,7 +68,7 @@ namespace FVat.Migrations
             if (entities.Length < 2)
                 throw new Exception("Not enough entities in DB.");
 
-            var testVAT1 = new Models.VAT() { Name = "Test Vat 1", IssuerId = entities[0].Id, ReceiverId = entities[1].Id };
+            var testVAT1 = new Models.VAT() { Name = "Test Vat 1", IssuerId = entities[0].Id, ReceiverId = entities[1].Id, DateOfIssue = DateTime.Now, DateOfService = DateTime.Now };
 
             if (!context.VATs.Any(e => e.Name == testVAT1.Name))
                 context.VATs.Add(testVAT1);
@@ -85,8 +89,9 @@ namespace FVat.Migrations
 
             if (context.ItemsOfVATs.Count() == 0)
             {
-                var testItemOfVAT = new Models.ItemOfVAT() { Amount = 12.5, VATId = vats[0].Id, VATItemId = items[0].Id };
+                var testItemOfVAT = new Models.ItemOfVAT() { Amount = 12.5, VATId = vats[0].Id, VATItemId = items[0].Id, VATItem = items[0] };
                 context.ItemsOfVATs.Add(testItemOfVAT);
+                context.Entry(items[0]).State = EntityState.Unchanged;
             }
 
             context.SaveChanges();
