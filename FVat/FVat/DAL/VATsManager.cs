@@ -69,5 +69,17 @@ namespace FVat.DAL
             }
             catch { throw; }
         }
+
+        public static bool VATExists(VAT vat)
+        {
+            try
+            {
+                var context = new AppDBContext();
+                var target = context.VATs.Find(vat.Id);
+
+                return target != null;
+            }
+            catch { throw; }
+        }
     }
 }

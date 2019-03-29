@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FVat.Models
 {
-    sealed class VATItem: BasicEntity, IUpdateable<VATItem>
+    class VATItem: BasicEntity, IUpdateable<VATItem>
     {
         [Required]
         public Unit Unit { get; set; }

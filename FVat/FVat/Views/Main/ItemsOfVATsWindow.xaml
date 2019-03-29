@@ -1,0 +1,22 @@
+﻿<Window x:Class="FVat.Views.Main.ItemsOfVATsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FVat.Views.Main"
+        mc:Ignorable="d"
+        Title="Przedmioty Faktury" Height="450" Width="800" Icon="/FVat;component/Content/fvat logo.jpg" WindowStartupLocation="CenterScreen" MinWidth="400" MinHeight="200">
+    
+    <Grid>
+        <DataGrid Margin="0,0,0,35" ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="150" Header="Przedmiot" Width="1*" Binding="{Binding VATItem.Name}" IsReadOnly="True" SortDirection="Ascending" />
+                <DataGridTextColumn MinWidth="150" Header="Ilość" Width="1*" Binding="{Binding Amount}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Usuń" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedItem}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
+        <Button Content="Modyfikuj" Command="{Binding ModifyCommand}" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
+        <Button Content="Dodaj" Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
+    </Grid>
+</Window>

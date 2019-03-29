@@ -81,6 +81,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="DAL\AppDBContext.cs" />
+    <Compile Include="DAL\ItemsOfVATsManager.cs" />
     <Compile Include="DAL\VATEntitiesManager.cs" />
     <Compile Include="DAL\VATItemsManager.cs" />
     <Compile Include="DAL\VATsManager.cs" />
@@ -122,6 +123,10 @@
     <Compile Include="Migrations\201903261652379_Added-VATs-table.Designer.cs">
       <DependentUpon>201903261652379_Added-VATs-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281406235_Added-ItemsOfVATs-Table.cs" />
+    <Compile Include="Migrations\201903281406235_Added-ItemsOfVATs-Table.Designer.cs">
+      <DependentUpon>201903281406235_Added-ItemsOfVATs-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\BasicEntity.cs" />
@@ -129,6 +134,7 @@
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\IShowable.cs" />
     <Compile Include="Models\INameable.cs" />
+    <Compile Include="Models\ItemOfVAT.cs" />
     <Compile Include="Models\IUpdateable.cs" />
     <Compile Include="Models\Unit.cs" />
     <Compile Include="Models\VAT.cs" />
@@ -139,6 +145,8 @@
     <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\EditorViewModel.cs" />
     <Compile Include="ViewModels\ItemSelectControlViewModel.cs" />
+    <Compile Include="ViewModels\ItemsOfVATsEditorViewModel.cs" />
+    <Compile Include="ViewModels\ItemsOfVATsViewModel.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesEditorViewModel.cs" />
     <Compile Include="ViewModels\VATEntitiesViewModel.cs" />
@@ -151,6 +159,12 @@
     </Compile>
     <Compile Include="Views\Controls\ItemSelectControl.xaml.cs">
       <DependentUpon>ItemSelectControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ItemsOfVATsEditorWindow.xaml.cs">
+      <DependentUpon>ItemsOfVATsEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ItemsOfVATsWindow.xaml.cs">
+      <DependentUpon>ItemsOfVATsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -188,6 +202,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\ItemSelectControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ItemsOfVATsEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ItemsOfVATsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903261652379_Added-VATs-table.resx">
       <DependentUpon>201903261652379_Added-VATs-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281406235_Added-ItemsOfVATs-Table.resx">
+      <DependentUpon>201903281406235_Added-ItemsOfVATs-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

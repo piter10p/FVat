@@ -1,0 +1,20 @@
+﻿<Window x:Class="FVat.Views.Main.ItemsOfVATsEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FVat.Views.Main"
+        xmlns:crls="clr-namespace:FVat.Views.Controls"
+        mc:Ignorable="d"
+        Title="ItemsOfVATsEditorWindow" Height="190" Width="800" WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg" MinWidth="300" MinHeight="190" MaxHeight="190">
+    
+    <Grid>
+        <Label Content="Przedmiot" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <crls:ItemSelectControl DataContext="{Binding ItemSelectControlViewModel}" VerticalAlignment="Top" Margin="10,39,10,0" />
+
+        <Label Content="Ilość" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Text="{Binding Amount, Mode=TwoWay}" Height="23" Margin="10,90,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+        <Button Command="{Binding ActionCommand}" CommandParameter="{Binding Item}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Zapisz" Margin="0,0,10,10" Height="21" Width="126" />
+    </Grid>
+</Window>

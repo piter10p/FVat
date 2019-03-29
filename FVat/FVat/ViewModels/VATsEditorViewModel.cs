@@ -9,14 +9,25 @@ namespace FVat.ViewModels
 {
     sealed class VATsEditorViewModel: EditorViewModel<VAT>
     {
-        public VATsEditorViewModel(Type editorWindowType, VATEntitiesViewModel vatEntitiesViewModel)
+        private Type itemsOfVATsWindowType;
+        private Type itemsOfVATsEditorWindowType;
+        private VATItemsViewModel vatItemsViewModel;
+
+        public VATsEditorViewModel(Type editorWindowType, VATEntitiesViewModel vatEntitiesViewModel, VATItemsViewModel vatItemsViewModel, Type itemsOfVATsWindowType, Type itemsOfVATsEditorWindowType)
             : base(editorWindowType)
         {
-            CreateControlViewsModels(vatEntitiesViewModel);
+            this.itemsOfVATsWindowType = itemsOfVATsWindowType;
+            this.itemsOfVATsEditorWindowType = itemsOfVATsEditorWindowType;
+            this.vatItemsViewModel = vatItemsViewModel;
+            OpenItemsOfVATsEditor = new Commands.Command(OnOpenItemsOfVATsEditor, CanOpenItemsOfVATsEditor);
+            CreateViewModels(vatEntitiesViewModel);
         }
 
         public ItemSelectControlViewModel IssuerControlViewModel { get; private set; }
         public ItemSelectControlViewModel ReceiverControlViewModel { get; private set; }
+        public ItemsOfVATsViewModel ItemsOfVATsViewModel { get; private set; }
+
+        public Commands.Command OpenItemsOfVATsEditor { get; private set; }
 
         public override void Show(Action<object> saveAction, VAT item)
         {
@@ -24,6 +35,8 @@ namespace FVat.ViewModels
             action = saveAction;
             IssuerControlViewModel.Entity = Item.Issuer;
             ReceiverControlViewModel.Entity = Item.Receiver;
+            ItemsOfVATsViewModel = new ItemsOfVATsViewModel(itemsOfVATsWindowType, item);
+            ItemsOfVATsViewModel.EditorViewModel = new ItemsOfVATsEditorViewModel(itemsOfVATsEditorWindowType, vatItemsViewModel);
             ShowDialogOfType(windowType, out window, this);
         }
 
@@ -41,7 +54,9 @@ namespace FVat.ViewModels
             }
         }
 
-        private void CreateControlViewsModels(VATEntitiesViewModel vatEntitiesViewModel)
+        public object AsyncHelpers { get; private set; }
+
+        private void CreateViewModels(VATEntitiesViewModel vatEntitiesViewModel)
         {
             IssuerControlViewModel = new ItemSelectControlViewModel(vatEntitiesViewModel, UpdateIssuer);
             ReceiverControlViewModel = new ItemSelectControlViewModel(vatEntitiesViewModel, UpdateReceiver);
@@ -55,6 +70,16 @@ namespace FVat.ViewModels
         private void UpdateReceiver(BasicEntity entity)
         {
             Item.Receiver = entity as VATEntity;
+        }
+
+        private void OnOpenItemsOfVATsEditor(object parameter)
+        {
+            ItemsOfVATsViewModel.ShowDialog(null, null);
+        }
+
+        private bool CanOpenItemsOfVATsEditor()
+        {
+            return DAL.VATsManager.VATExists(Item);
         }
     }
 }

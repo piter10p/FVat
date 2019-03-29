@@ -16,6 +16,6 @@ namespace FVat.Models
         public int Id { get; set; }
 
         [Required, MaxLength(256), Index(IsUnique = true)]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
     }
 }
