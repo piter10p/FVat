@@ -31,7 +31,7 @@
                         <DataGridTextColumn Header="Data wystawienia" Width="1*" Binding="{Binding DateOfIssueText}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Wydający" Width="1*" Binding="{Binding Issuer.Name}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Odbierający" Width="1*" Binding="{Binding Receiver.Name}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Kwota brutto" Width="1*" />
+                        <DataGridTextColumn Header="Kwota brutto" Width="1*" Binding="{Binding GrossPriceText}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Grid Grid.Column="2">

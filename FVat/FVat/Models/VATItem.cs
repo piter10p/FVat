@@ -39,6 +39,18 @@ namespace FVat.Models
             }
         }
 
+        [NotMapped]
+        public double VATMultipler
+        {
+            get
+            {
+                if (VATRate == VATRate.RateZW)
+                    return 1;
+
+                return (double)VATRate / 100 + 1;
+            }
+        }
+
         public void Update(VATItem source)
         {
             this.Id = source.Id;

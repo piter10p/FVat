@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 namespace FVat.Models
 {
     //Don't modify unless you know, what you're doing
+    //All values represents exact VAT value. Except ZW
     [TypeConverter(typeof(EnumDescriptionTypeConverter))]
     enum VATRate
     {
         [Description("23%")]
-        Rate23 = 0,
+        Rate23 = 23,
         [Description("8%")]
-        Rate8 = 1,
+        Rate8 = 8,
         [Description("5%")]
-        Rate5 = 2,
+        Rate5 = 5,
         [Description("0%")]
-        Rate0 = 3,
+        Rate0 = 0,
         [Description("zw.")]
-        RateZW = 4
+        RateZW = 100
     }
 }

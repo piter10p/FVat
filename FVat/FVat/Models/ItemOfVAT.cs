@@ -33,6 +33,24 @@ namespace FVat.Models
         public int VATId { get; set; }
         public virtual VAT VAT { get; set; }
 
+        [NotMapped]
+        public double NetPrice
+        {
+            get
+            {
+                return Amount * VATItem.UnitPrice;
+            }
+        }
+
+        [NotMapped]
+        public double GrossPrice
+        {
+            get
+            {
+                return Amount * VATItem.UnitPrice * VATItem.VATMultipler;
+            }
+        }
+
         public void Update(ItemOfVAT source)
         {
             this.Id = source.Id;

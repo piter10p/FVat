@@ -8,7 +8,7 @@
         xmlns:models="clr-namespace:FVat.Models"
         xmlns:crls="clr-namespace:FVat.Views.Controls"
         mc:Ignorable="d"
-        Title="Edycja Faktury" Height="745" Width="800" MinWidth="300"
+        Title="Edycja Faktury" Height="630" Width="800" MinWidth="300" MinHeight="630" MaxHeight="630"
         WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg">
     <Grid>
         <Label Content="Numer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

@@ -46,6 +46,49 @@ namespace FVat.Models
         [Required]
         public DeliveryMethod DeliveryMethod { get; set; }
 
+        [NotMapped]
+        public double NetPrice
+        {
+            get
+            {
+                double netPrice = 0.0;
+                var items = DAL.ItemsOfVATsManager.GetItemsofVAT(this);
+
+                foreach(var i in items)
+                {
+                    netPrice += i.NetPrice;
+                }
+
+                return netPrice;
+            }
+        }
+
+        [NotMapped]
+        public double GrossPrice
+        {
+            get
+            {
+                double grossPrice = 0.0;
+                var items = DAL.ItemsOfVATsManager.GetItemsofVAT(this);
+
+                foreach (var i in items)
+                {
+                    grossPrice += i.GrossPrice;
+                }
+
+                return grossPrice;
+            }
+        }
+
+        [NotMapped]
+        public string GrossPriceText
+        {
+            get
+            {
+                return GrossPrice.ToString("C");
+            }
+        }
+
         public void Update(VAT source)
         {
             Id = source.Id;
