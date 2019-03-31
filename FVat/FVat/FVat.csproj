@@ -183,6 +183,7 @@
     <Compile Include="Views\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\VATDocumentGenerator.cs" />
     <Compile Include="Views\Main\VATEditorWindow.xaml.cs">
       <DependentUpon>VATEditorWindow.xaml</DependentUpon>
     </Compile>
@@ -335,6 +336,12 @@
   <ItemGroup>
     <Resource Include="Content\fvat logo.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Resources\VATTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

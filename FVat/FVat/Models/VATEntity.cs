@@ -13,6 +13,17 @@ namespace FVat.Models
         [StringLength(14, MinimumLength = 10)]
         public string NIP { get; set; }
 
+        public string NIPTextFormatted
+        {
+            get
+            {
+                if (NIP.Length < 10)
+                    throw new Exception("NIP string is to short.");
+
+                return $"{NIP.Substring(0, 3)}-{NIP.Substring(3, 3)}-{NIP.Substring(6, 2)}-{NIP.Substring(8, 2)}";
+            }
+        }
+
         [StringLength(11, MinimumLength = 11)]
         public string PESEL { get; set; }
 

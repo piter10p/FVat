@@ -17,11 +17,32 @@ namespace FVat.ViewModels
             ShowVATEntitiesWindow = new Commands.Command(OnShowVATEntitiesWindow);
         }
 
+        public Action ViewDocument { get; set; }
+
         public VATEntitiesViewModel VATEntitiesViewModel { get; set; }
         public VATItemsViewModel VATItemsViewModel { get; set; }
 
         public Commands.Command ShowVATItemsWindow { get; private set; }
         public Commands.Command ShowVATEntitiesWindow { get; private set; }
+
+        public override VAT SelectedItem
+        {
+            get
+            {
+                return _selectedItem;
+            }
+
+            set
+            {
+                _selectedItem = value;
+                DeleteCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
+                ActionCommand.RaiseCanExecuteChanged();
+                OnNotifyPropertyChanged();
+
+                ViewDocument?.Invoke();
+            }
+        }
 
         protected override async void OnAddAsync(object parameter)
         {

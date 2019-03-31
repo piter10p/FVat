@@ -11,7 +11,7 @@ namespace FVat.ViewModels
 {
     abstract class ListViewModel<T>: DialogViewModel
     {
-        private T _selectedItem;
+        protected T _selectedItem;
         private ObservableCollection<T> _list;
 
         public Command DeleteCommand { get; private set; }
@@ -29,7 +29,7 @@ namespace FVat.ViewModels
             UpdateList();
         }
 
-        public T SelectedItem
+        public virtual T SelectedItem
         {
             get
             {

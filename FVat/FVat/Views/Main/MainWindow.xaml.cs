@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace FVat.Views.Main
 {
@@ -25,8 +26,9 @@ namespace FVat.Views.Main
         {
             InitializeComponent();
             DataContext = context;
-
             var vatContext = DataContext as ViewModels.VATsViewModel;
+
+            vatContext.ViewDocument = ViewDocument;
 
             vatContext.VATEntitiesViewModel = new ViewModels.VATEntitiesViewModel(typeof(VATEntities.VATEntitiesWindow));
             vatContext.VATEntitiesViewModel.EditorViewModel = new ViewModels.VATEntitiesEditorViewModel(typeof(VATEntities.VATEntityEditorWindow));
@@ -51,6 +53,14 @@ namespace FVat.Views.Main
         {
             if (AboutWindow != null)
                 AboutWindow.Close();
+        }
+
+        private void ViewDocument()
+        {
+            var vatContext = DataContext as ViewModels.VATsViewModel;
+
+            if(vatContext.SelectedItem != null)
+                DocumentViewer.Document = VATDocumentGenerator.Generate(vatContext.SelectedItem);
         }
     }
 }

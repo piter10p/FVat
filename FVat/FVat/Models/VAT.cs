@@ -34,6 +34,16 @@ namespace FVat.Models
         [Required, DataType(DataType.Date)]
         public DateTime DateOfService { get; set; } = DateTime.Now;
 
+        [NotMapped]
+        public string DateOfServiceText
+        {
+            get
+            {
+                return DateOfService.ToShortDateString();
+            }
+        }
+
+
         [DataType(DataType.Date)]
         public DateTime? DateOfPayment { get; set; }
 

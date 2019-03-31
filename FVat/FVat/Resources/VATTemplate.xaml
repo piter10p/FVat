@@ -1,0 +1,123 @@
+﻿<FlowDocument
+  x:Name="VATTemplate"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:Drawing="clr-namespace:System.Drawing;assembly=System.Drawing">
+
+    <Table>
+        <Table.Columns>
+            <TableColumn Width="6*"/>
+            <TableColumn Background="Yellow" Width="1*"/>
+            <TableColumn Width="6*"/>
+        </Table.Columns>
+
+        <TableRowGroup>
+            <TableRow>
+                <TableCell>
+                    <Paragraph>Obraz</Paragraph>
+                </TableCell>
+
+                <TableCell />
+
+                <TableCell TextAlignment="Right" FontSize="7">
+                    <Paragraph>Miejsce wystawienia:</Paragraph>
+                    <Paragraph>Data wystawienia:
+                        <Span x:Name="DateOfIssue" FontWeight="Bold"></Span>
+                    </Paragraph>
+                    <Paragraph>Data sprzedaży/wykonania usługi:
+                        <Span x:Name="DateOfService" FontWeight="Bold"></Span>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell ColumnSpan="3">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow Background="#d6d6d6">
+                <TableCell Padding="3" ColumnSpan="3" BorderBrush="Black" BorderThickness="0,1,0,1" FontSize="9">
+                    <Paragraph>Faktura nr:
+                        <Span x:Name="Number" FontWeight="Bold"></Span>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell ColumnSpan="3">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell>
+                    <Paragraph FontSize="7" FontWeight="Bold" BorderBrush="Black" BorderThickness="0,0,0,1">Wystawiający</Paragraph>
+                    <List MarkerStyle="None" FontSize="6" x:Name="Issuer" />
+                </TableCell>
+
+                <TableCell/>
+
+                <TableCell>
+                    <Paragraph FontSize="7" FontWeight="Bold" BorderBrush="Black" BorderThickness="0,0,0,1">Odbierający</Paragraph>
+                    <List MarkerStyle="None" FontSize="6" x:Name="Receiver" />
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell ColumnSpan="3">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell ColumnSpan="3">
+                    <Table CellSpacing="0">
+                        <Table.Columns>
+                            <TableColumn Width="2*"/>
+                            <TableColumn Width="6*"/>
+                            <TableColumn Width="3*"/>
+                            <TableColumn Width="3*"/>
+                            <TableColumn Width="3*"/>
+                            <TableColumn Width="3*"/>
+                            <TableColumn Width="3*"/>
+                            <TableColumn Width="3*"/>
+                            <TableColumn Width="3*"/>
+                        </Table.Columns>
+                        <TableRowGroup x:Name="ItemsTableRow" FontSize="6">
+                            <TableRow Background="#d6d6d6" FontWeight="Bold">
+                                <TableCell>
+                                    <Paragraph>L.p.</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Nazwa towaru/usługi</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Ilość</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>J.M.</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Cena j. netto</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>VAT</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Kwota netto</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Kwota VAT</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Kwota brutto</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                        </TableRowGroup>
+                    </Table>
+                </TableCell>
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+</FlowDocument>
