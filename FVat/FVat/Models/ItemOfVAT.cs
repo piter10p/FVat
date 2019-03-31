@@ -34,56 +34,11 @@ namespace FVat.Models
         public virtual VAT VAT { get; set; }
 
         [NotMapped]
-        public double NetPrice
+        public Price Price
         {
             get
             {
-                return Amount * VATItem.UnitPrice;
-            }
-        }
-
-        [NotMapped]
-        public string NetPriceText
-        {
-            get
-            {
-                return NetPrice.ToString("C");
-            }
-        }
-
-        [NotMapped]
-        public double GrossPrice
-        {
-            get
-            {
-                return Amount * VATItem.UnitPrice * VATItem.VATMultipler;
-            }
-        }
-
-        [NotMapped]
-        public string GrossPriceText
-        {
-            get
-            {
-                return GrossPrice.ToString("C");
-            }
-        }
-
-        [NotMapped]
-        public double VATPrice
-        {
-            get
-            {
-                return GrossPrice - NetPrice;
-            }
-        }
-
-        [NotMapped]
-        public string VATPriceText
-        {
-            get
-            {
-                return VATPrice.ToString("C");
+                return new Price(VATItem.UnitPrice, Amount, VATItem.VATRate);
             }
         }
 

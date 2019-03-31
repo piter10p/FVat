@@ -150,6 +150,7 @@
     <Compile Include="Models\ItemOfVAT.cs" />
     <Compile Include="Models\IUpdateable.cs" />
     <Compile Include="Models\PaymentMethod.cs" />
+    <Compile Include="Models\Price.cs" />
     <Compile Include="Models\Unit.cs" />
     <Compile Include="Models\VAT.cs" />
     <Compile Include="Models\VATEntity.cs" />
