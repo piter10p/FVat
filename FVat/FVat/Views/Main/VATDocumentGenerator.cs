@@ -43,6 +43,11 @@ namespace FVat.Views.Main
             GenerateItemsTable(tableRowGroupElement, vat);
             FormatTable(tableRowGroupElement);
 
+            //VAT table
+            tableRowGroupElement = LogicalTreeHelper.FindLogicalNode(doc, "VATTableRow") as TableRowGroup;
+            GenerateVATTable(tableRowGroupElement, vat);
+            FormatTable(tableRowGroupElement);
+
             return doc;
         }
 
@@ -75,7 +80,8 @@ namespace FVat.Views.Main
                 var row = new TableRow();
 
                 var unitText = ConvertEnumToString(i.VATItem.Unit, typeof(Models.Unit));
-                var vatText = ConvertEnumToString(i.VATItem.VATRate, typeof(Models.VAT));
+                var vatText = ConvertEnumToString(i.VATItem.VATRate, typeof(Models.VATRate));
+                var price = i.Price;
 
                 row.Cells.Add(new TableCell(new Paragraph(new Run(counter.ToString()))));//L.p.
                 row.Cells.Add(new TableCell(new Paragraph(new Run(i.Name))));//Name
@@ -83,13 +89,49 @@ namespace FVat.Views.Main
                 row.Cells.Add(new TableCell(new Paragraph(new Run(unitText))));//Unit
                 row.Cells.Add(new TableCell(new Paragraph(new Run(i.VATItem.PriceText))));//Net unit price
                 row.Cells.Add(new TableCell(new Paragraph(new Run(vatText))));//VAT
-                row.Cells.Add(new TableCell(new Paragraph(new Run(i.NetPriceText))));//Net price
-                row.Cells.Add(new TableCell(new Paragraph(new Run(i.VATPriceText))));//VAT price
-                row.Cells.Add(new TableCell(new Paragraph(new Run(i.GrossPriceText))));//Gross price
+                row.Cells.Add(new TableCell(new Paragraph(new Run(price.NetText))));//Net price
+                row.Cells.Add(new TableCell(new Paragraph(new Run(price.VATText))));//VAT price
+                row.Cells.Add(new TableCell(new Paragraph(new Run(price.GrossText))));//Gross price
                 tableRowGroup.Rows.Add(row);
 
                 counter++;
             }
+        }
+
+        static private void GenerateVATTable(TableRowGroup tableRowGroup, Models.VAT vat)
+        {
+            var vatRateCalculator = new Models.VATRateCalulator();
+            var pricesLits = vatRateCalculator.Calulate(vat);
+
+            var endPrice = new Models.Price();
+
+            //Generates basic table
+            foreach(var price in pricesLits)
+            {
+                var row = new TableRow();
+
+                var vatText = ConvertEnumToString(price.Key, typeof(Models.VATRate));
+
+                row.Cells.Add(new TableCell(new Paragraph(new Run(vatText))));
+                row.Cells.Add(new TableCell(new Paragraph(new Run(price.Value.NetText))));
+                row.Cells.Add(new TableCell(new Paragraph(new Run(price.Value.VATText))));
+                row.Cells.Add(new TableCell(new Paragraph(new Run(price.Value.GrossText))));
+
+                endPrice += price.Value;
+
+                tableRowGroup.Rows.Add(row);
+            }
+
+            //Adds end row
+            var endRow = new TableRow();
+            endRow.Background = new SolidColorBrush(Color.FromRgb(232, 232, 232));
+
+            endRow.Cells.Add(new TableCell(new Paragraph(new Run("Razem"))));
+            endRow.Cells.Add(new TableCell(new Paragraph(new Run(endPrice.NetText))));
+            endRow.Cells.Add(new TableCell(new Paragraph(new Run(endPrice.VATText))));
+            endRow.Cells.Add(new TableCell(new Paragraph(new Run(endPrice.GrossText))));
+
+            tableRowGroup.Rows.Add(endRow);
         }
 
         static private void FormatTable(TableRowGroup tableRowGroup)

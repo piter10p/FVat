@@ -156,6 +156,7 @@
     <Compile Include="Models\VATEntity.cs" />
     <Compile Include="Models\VATItem.cs" />
     <Compile Include="Models\VATRate.cs" />
+    <Compile Include="Models\VATRateCalulator.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\EditorViewModel.cs" />

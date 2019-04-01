@@ -118,6 +118,36 @@
                     </Table>
                 </TableCell>
             </TableRow>
+
+            <TableRow>
+                <TableCell ColumnSpan="3">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell />
+                <TableCell ColumnSpan="2">
+                    <Table CellSpacing="0">
+                        <TableRowGroup x:Name="VATTableRow" FontSize="6">
+                            <TableRow Background="#d6d6d6" FontWeight="Bold">
+                                <TableCell>
+                                    <Paragraph>Stawka VAT</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Netto</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>VAT</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>Brutto</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                        </TableRowGroup>
+                    </Table>
+                </TableCell>
+            </TableRow>
         </TableRowGroup>
     </Table>
 </FlowDocument>
