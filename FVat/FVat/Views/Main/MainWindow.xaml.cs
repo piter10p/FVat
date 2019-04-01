@@ -89,7 +89,14 @@ namespace FVat.Views.Main
                     {
                         using (var stream = new FileStream(path, FileMode.OpenOrCreate))
                         {
-                            content.Save(stream, System.Windows.Forms.DataFormats.Rtf);
+                            try
+                            {
+                                content.Save(stream, System.Windows.Forms.DataFormats.Rtf);
+                            }
+                            catch(Exception e)
+                            {
+                                System.Windows.Forms.MessageBox.Show("Nie udało się zapisać pliku.\nWyjątek: " + e.Message);
+                            }
                         }
                     }
                 }

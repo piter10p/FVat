@@ -3,11 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Drawing="clr-namespace:System.Drawing;assembly=System.Drawing"
-    xmlns:local="clr-namespace:FVat.Views.Main"
-    PageHeight="{Binding Height, Source={x:Static local:PrintLayout.A4}}"
-    PageWidth="{Binding Width, Source={x:Static local:PrintLayout.A4}}"
-    PagePadding="{Binding Margin, Source={x:Static local:PrintLayout.A4}}"
-    ColumnWidth="{Binding ColumnWidth, Source={x:Static local:PrintLayout.A4}}">
+    xmlns:local="clr-namespace:FVat.Views.Main">
 
     <Table>
         <Table.Columns>
