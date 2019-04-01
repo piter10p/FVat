@@ -47,8 +47,32 @@ namespace FVat.Models
         [DataType(DataType.Date)]
         public DateTime? DateOfPayment { get; set; }
 
+        [NotMapped]
+        public string DateOfPaymentText
+        {
+            get
+            {
+                if (DateOfPayment == null)
+                    return "Brak";
+
+                return DateOfPayment.Value.ToShortDateString();
+            }
+        }
+
         [DataType(DataType.Date)]
         public DateTime? PaymentTermDate { get; set; }
+
+        [NotMapped]
+        public string PaymentTermDateText
+        {
+            get
+            {
+                if (PaymentTermDate == null)
+                    return "Brak";
+
+                return PaymentTermDate.Value.ToShortDateString();
+            }
+        }
 
         [Required]
         public PaymentMethod PaymentMethod { get; set; }

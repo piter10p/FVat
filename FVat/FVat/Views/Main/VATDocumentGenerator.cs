@@ -48,6 +48,19 @@ namespace FVat.Views.Main
             GenerateVATTable(tableRowGroupElement, vat);
             FormatTable(tableRowGroupElement);
 
+            //Bottom info
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "PaymentMethod") as Span;
+            spanElement.Inlines.Add(ConvertEnumToString(vat.PaymentMethod, typeof(Models.PaymentMethod)));
+
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "PaymentTermDate") as Span;
+            spanElement.Inlines.Add(vat.PaymentTermDateText);
+
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "DateOfPayment") as Span;
+            spanElement.Inlines.Add(vat.DateOfPaymentText);
+
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "DeliveryMethod") as Span;
+            spanElement.Inlines.Add(ConvertEnumToString(vat.DeliveryMethod, typeof(Models.DeliveryMethod)));
+
             return doc;
         }
 

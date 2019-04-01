@@ -148,6 +148,26 @@
                     </Table>
                 </TableCell>
             </TableRow>
+
+            <TableRow>
+                <TableCell />
+                <TableCell />
+
+                <TableCell TextAlignment="Right" FontSize="7">
+                    <Paragraph>Sposób zapłaty:
+                        <Span x:Name="PaymentMethod" FontWeight="Bold"></Span>
+                    </Paragraph>
+                    <Paragraph>Termin zapłaty:
+                        <Span x:Name="PaymentTermDate" FontWeight="Bold"></Span>
+                    </Paragraph>
+                    <Paragraph>Data opłacenia:
+                        <Span x:Name="DateOfPayment" FontWeight="Bold"></Span>
+                    </Paragraph>
+                    <Paragraph>Dostawa:
+                        <Span x:Name="DeliveryMethod" FontWeight="Bold"></Span>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
         </TableRowGroup>
     </Table>
 </FlowDocument>
