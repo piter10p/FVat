@@ -64,6 +64,12 @@ namespace FVat.Views.Main
             spanElement = LogicalTreeHelper.FindLogicalNode(doc, "DeliveryMethod") as Span;
             spanElement.Inlines.Add(ConvertEnumToString(vat.DeliveryMethod, typeof(Models.DeliveryMethod)));
 
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "FinalPrice") as Span;
+            spanElement.Inlines.Add(vat.Price.GrossText);
+
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "FinalPriceInWords") as Span;
+            spanElement.Inlines.Add("liczba słownie");
+
             return doc;
         }
 

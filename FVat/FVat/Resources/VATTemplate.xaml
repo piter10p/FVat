@@ -7,7 +7,7 @@
     <Table>
         <Table.Columns>
             <TableColumn Width="6*"/>
-            <TableColumn Background="Yellow" Width="1*"/>
+            <TableColumn Width="1*"/>
             <TableColumn Width="6*"/>
         </Table.Columns>
 
@@ -155,7 +155,7 @@
                 <TableCell />
                 <TableCell />
 
-                <TableCell TextAlignment="Right" FontSize="7">
+                <TableCell TextAlignment="Right" FontSize="7" Padding="0,0,0,3">
                     <Paragraph>Sposób zapłaty:
                         <Span x:Name="PaymentMethod" FontWeight="Bold"></Span>
                     </Paragraph>
@@ -168,6 +168,45 @@
                     <Paragraph>Dostawa:
                         <Span x:Name="DeliveryMethod" FontWeight="Bold"></Span>
                     </Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow Background="#d6d6d6">
+                <TableCell Padding="3" ColumnSpan="3" FontSize="9" FontWeight="Bold">
+                    <Paragraph>
+                        <Underline>
+                            Do zapłaty:
+                            <Span x:Name="FinalPrice"></Span>
+                        </Underline>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            
+            <TableRow>
+                <TableCell Padding="3,3,0,0" ColumnSpan="3" FontSize="7">
+                    <Paragraph>
+                        Słownie:
+                        <Span x:Name="FinalPriceInWords" FontWeight="Bold"></Span>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow>
+                <TableCell ColumnSpan="3">
+                    <Paragraph></Paragraph>
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+
+            <TableRow FontSize="6">
+                <TableCell TextAlignment="Center" BorderBrush="Black" BorderThickness="0,1,0,0">
+                    <Paragraph Padding="0,2,0,0">Osoba upoważniona do odbioru</Paragraph>
+                </TableCell>
+
+                <TableCell />
+
+                <TableCell TextAlignment="Center" BorderBrush="Black" BorderThickness="0,1,0,0">
+                    <Paragraph Padding="0,2,0,0">Osoba upoważniona do wystawienia</Paragraph>
                 </TableCell>
             </TableRow>
         </TableRowGroup>
