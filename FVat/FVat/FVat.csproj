@@ -189,6 +189,7 @@
     <Compile Include="Views\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\PrintLayout.cs" />
     <Compile Include="Views\Main\VATDocumentGenerator.cs" />
     <Compile Include="Views\Main\VATEditorWindow.xaml.cs">
       <DependentUpon>VATEditorWindow.xaml</DependentUpon>

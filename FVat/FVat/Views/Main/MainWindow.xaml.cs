@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -29,6 +31,7 @@ namespace FVat.Views.Main
             var vatContext = DataContext as ViewModels.VATsViewModel;
 
             vatContext.ViewDocument = ViewDocument;
+            vatContext.SaveDocument = SaveDocument;
 
             vatContext.VATEntitiesViewModel = new ViewModels.VATEntitiesViewModel(typeof(VATEntities.VATEntitiesWindow));
             vatContext.VATEntitiesViewModel.EditorViewModel = new ViewModels.VATEntitiesEditorViewModel(typeof(VATEntities.VATEntityEditorWindow));
@@ -61,6 +64,36 @@ namespace FVat.Views.Main
 
             if(vatContext.SelectedItem != null)
                 DocumentViewer.Document = VATDocumentGenerator.Generate(vatContext.SelectedItem);
+        }
+
+        private void SaveDocument()
+        {
+            var vatContext = DataContext as ViewModels.VATsViewModel;
+
+            if (DocumentViewer.Document != null)
+            {
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.FileName = vatContext.SelectedItem.Name;
+                dlg.DefaultExt = ".rtf"; 
+                dlg.Filter = "Dokumenty RTF (.rtf)|*.rtf";
+
+                bool? result = dlg.ShowDialog();
+
+                if (result == true)
+                {
+                    string path = dlg.FileName;
+                    var doc = DocumentViewer.Document;
+                    var content = new TextRange(doc.ContentStart, doc.ContentEnd);
+
+                    if (content.CanSave(System.Windows.Forms.DataFormats.Rtf))
+                    {
+                        using (var stream = new FileStream(path, FileMode.OpenOrCreate))
+                        {
+                            content.Save(stream, System.Windows.Forms.DataFormats.Rtf);
+                        }
+                    }
+                }
+            }
         }
     }
 }

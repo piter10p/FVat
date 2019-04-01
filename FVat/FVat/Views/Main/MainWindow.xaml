@@ -22,7 +22,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" MinWidth="500" />
                     <ColumnDefinition Width="5" />
-                    <ColumnDefinition Width="1*" MinWidth="300"/>
+                    <ColumnDefinition Width="1*" MinWidth="350"/>
                 </Grid.ColumnDefinitions>
                 <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
                 <DataGrid ItemsSource="{Binding ItemsList}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False">
@@ -40,6 +40,7 @@
                     <Button Content="Usuń" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75"/>
                     <Button Content="Modyfikuj" Command="{Binding ModifyCommand}" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75"/>
                     <Button Content="Dodaj" Command="{Binding AddCommand}" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" Width="75"/>
+                    <Button Content="Zapisz do pliku" Command="{Binding SaveDocumentCommand}" HorizontalAlignment="Right" Margin="0,0,250,10" VerticalAlignment="Bottom" Width="95"/>
                 </Grid>
             </Grid>
         </DockPanel>

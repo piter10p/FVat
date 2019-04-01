@@ -15,15 +15,19 @@ namespace FVat.ViewModels
         {
             ShowVATItemsWindow = new Commands.Command(OnShowVATItemsWindow);
             ShowVATEntitiesWindow = new Commands.Command(OnShowVATEntitiesWindow);
+            SaveDocumentCommand = new Commands.Command(OnSaveDocument, CanExecuteAction);
         }
 
         public Action ViewDocument { get; set; }
+        public Action PrintDocument { get; set; }
+        public Action SaveDocument { get; set; }
 
         public VATEntitiesViewModel VATEntitiesViewModel { get; set; }
         public VATItemsViewModel VATItemsViewModel { get; set; }
 
         public Commands.Command ShowVATItemsWindow { get; private set; }
         public Commands.Command ShowVATEntitiesWindow { get; private set; }
+        public Commands.Command SaveDocumentCommand { get; private set; }
 
         public override VAT SelectedItem
         {
@@ -38,6 +42,7 @@ namespace FVat.ViewModels
                 DeleteCommand.RaiseCanExecuteChanged();
                 ModifyCommand.RaiseCanExecuteChanged();
                 ActionCommand.RaiseCanExecuteChanged();
+                SaveDocumentCommand.RaiseCanExecuteChanged();
                 OnNotifyPropertyChanged();
 
                 ViewDocument?.Invoke();
@@ -96,6 +101,11 @@ namespace FVat.ViewModels
         private void OnShowVATEntitiesWindow(object parameter)
         {
             VATEntitiesViewModel.ShowDialog(null, null);
+        }
+
+        private void OnSaveDocument(object parameter)
+        {
+            SaveDocument?.Invoke();
         }
 
         protected override bool CanExecuteAction()
