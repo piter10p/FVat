@@ -54,6 +54,20 @@ namespace FVat.ViewModels
             }
         }
 
+        public string PlaceOfIssue
+        {
+            get
+            {
+                return Item.PlaceOfIssue;
+            }
+
+            set
+            {
+                Item.PlaceOfIssue = value;
+                ActionCommand.RaiseCanExecuteChanged();
+            }
+        }
+
         public DateTime DateOfIssue
         {
             get

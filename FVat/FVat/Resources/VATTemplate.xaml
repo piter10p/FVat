@@ -20,7 +20,9 @@
                 <TableCell />
 
                 <TableCell TextAlignment="Right" FontSize="7">
-                    <Paragraph>Miejsce wystawienia:</Paragraph>
+                    <Paragraph>Miejsce wystawienia:
+                        <Span x:Name="PlaceOfIssue" FontWeight="Bold"></Span>
+                    </Paragraph>
                     <Paragraph>Data wystawienia:
                         <Span x:Name="DateOfIssue" FontWeight="Bold"></Span>
                     </Paragraph>

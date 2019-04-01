@@ -8,26 +8,29 @@
         xmlns:models="clr-namespace:FVat.Models"
         xmlns:crls="clr-namespace:FVat.Views.Controls"
         mc:Ignorable="d"
-        Title="Edycja Faktury" Height="630" Width="800" MinWidth="300" MinHeight="630" MaxHeight="630"
+        Title="Edycja Faktury" Height="680" Width="800" MinWidth="300" MinHeight="680" MaxHeight="680"
         WindowStartupLocation="CenterScreen" Icon="/FVat;component/Content/fvat logo.jpg">
     <Grid>
         <Label Content="Numer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Text="{Binding Number, Mode=TwoWay}" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
 
-        <GroupBox Header="Strony" Margin="10,64,10,0" VerticalAlignment="Top" Height="134">
+        <Label Content="Miejsce wystawienia" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Text="{Binding PlaceOfIssue, Mode=TwoWay}" Height="23" Margin="10,95,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"/>
+
+        <GroupBox Header="Strony" Margin="10,123,10,0" VerticalAlignment="Top" Height="134">
             <Grid>
                 <Label Content="Wystawiający" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <crls:ItemSelectControl DataContext="{Binding IssuerControlViewModel}" VerticalAlignment="Top" Margin="10,36,0,0" />
-                
+
                 <Label Content="Odbierający" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <crls:ItemSelectControl DataContext="{Binding ReceiverControlViewModel}" VerticalAlignment="Top" Margin="10,87,0,0" />
             </Grid>
         </GroupBox>
 
-        <Label Content="Przedmioty" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button Command="{Binding OpenItemsOfVATsEditor}" ToolTipService.ShowOnDisabled="True" ToolTip="Dodać przedmioty można tylko w trakcie modyfikacji istniejącej faktury" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Wybierz" Margin="0,206,10,0" Height="21" Width="126" />
+        <Label Content="Przedmioty" HorizontalAlignment="Left" Margin="10,519,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button Command="{Binding OpenItemsOfVATsEditor}" ToolTipService.ShowOnDisabled="True" ToolTip="Dodać przedmioty można tylko w trakcie modyfikacji istniejącej faktury" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Wybierz" Margin="0,522,10,0" Height="21" Width="126" />
 
-        <GroupBox Header="Daty" VerticalAlignment="Top" Margin="10,234,10,0" Height="252">
+        <GroupBox Header="Daty" VerticalAlignment="Top" Margin="10,262,10,0" Height="252">
             <Grid>
                 <Label Content="Data wystawienia" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <DatePicker SelectedDate ="{Binding DateOfIssue, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,36,0,0" />
@@ -43,13 +46,13 @@
             </Grid>
         </GroupBox>
 
-        <Label Content="Sposób płatności" HorizontalAlignment="Left" Margin="10,491,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,495,10,0" VerticalAlignment="Top" Width="120"
+        <Label Content="Sposób płatności" HorizontalAlignment="Left" Margin="10,550,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,554,10,0" VerticalAlignment="Top" Width="120"
                   ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type models:PaymentMethod}}}"
                   SelectedItem="{Binding PaymentMethod, Mode=TwoWay}" />
 
-        <Label Content="Sposób dostawy" HorizontalAlignment="Left" Margin="10,522,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,526,10,0" VerticalAlignment="Top" Width="120"
+        <Label Content="Sposób dostawy" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,581,10,0" VerticalAlignment="Top" Width="120"
                   ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type models:DeliveryMethod}}}"
                   SelectedItem="{Binding DeliveryMethod, Mode=TwoWay}" />
 

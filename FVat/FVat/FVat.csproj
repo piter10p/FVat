@@ -139,6 +139,10 @@
     <Compile Include="Migrations\201903291745074_Add-DeliveryMethod-To-VATs-Table.Designer.cs">
       <DependentUpon>201903291745074_Add-DeliveryMethod-To-VATs-Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904011431022_Added-PlaceOfIssue-Column-To-VATs-Table.cs" />
+    <Compile Include="Migrations\201904011431022_Added-PlaceOfIssue-Column-To-VATs-Table.Designer.cs">
+      <DependentUpon>201904011431022_Added-PlaceOfIssue-Column-To-VATs-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Addressable.cs" />
     <Compile Include="Models\BasicEntity.cs" />
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903291745074_Add-DeliveryMethod-To-VATs-Table.resx">
       <DependentUpon>201903291745074_Add-DeliveryMethod-To-VATs-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011431022_Added-PlaceOfIssue-Column-To-VATs-Table.resx">
+      <DependentUpon>201904011431022_Added-PlaceOfIssue-Column-To-VATs-Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

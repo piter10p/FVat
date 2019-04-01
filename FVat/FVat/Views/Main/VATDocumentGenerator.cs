@@ -27,6 +27,9 @@ namespace FVat.Views.Main
             spanElement = LogicalTreeHelper.FindLogicalNode(doc, "DateOfService") as Span;
             spanElement.Inlines.Add(vat.DateOfServiceText);
 
+            spanElement = LogicalTreeHelper.FindLogicalNode(doc, "PlaceOfIssue") as Span;
+            spanElement.Inlines.Add(vat.PlaceOfIssue);
+
             //Number
             spanElement = LogicalTreeHelper.FindLogicalNode(doc, "Number") as Span;
             spanElement.Inlines.Add(vat.Name);
@@ -66,20 +69,23 @@ namespace FVat.Views.Main
 
         static private void GenerateEntityData(List list, Models.VATEntity entity)
         {
-            list.ListItems.Add(new ListItem(new Paragraph(new Run(entity.Name))));
-            list.ListItems.Add(new ListItem(new Paragraph(new Run(entity.FullAddressFormatted))));
+            if(entity != null)
+            {
+                list.ListItems.Add(new ListItem(new Paragraph(new Run(entity.Name))));
+                list.ListItems.Add(new ListItem(new Paragraph(new Run(entity.FullAddressFormatted))));
 
-            if(entity.NIP != null)
-                list.ListItems.Add(new ListItem(new Paragraph(new Run("NIP: " + entity.NIPTextFormatted))));
+                if (entity.NIP != null)
+                    list.ListItems.Add(new ListItem(new Paragraph(new Run("NIP: " + entity.NIPTextFormatted))));
 
-            if (entity.PESEL != null)
-                list.ListItems.Add(new ListItem(new Paragraph(new Run("PESEL: " + entity.PESEL))));
+                if (entity.PESEL != null)
+                    list.ListItems.Add(new ListItem(new Paragraph(new Run("PESEL: " + entity.PESEL))));
 
-            if (entity.EMail != null)
-                list.ListItems.Add(new ListItem(new Paragraph(new Run("email: " + entity.EMail))));
+                if (entity.EMail != null)
+                    list.ListItems.Add(new ListItem(new Paragraph(new Run("email: " + entity.EMail))));
 
-            if (entity.PhoneNumber != null)
-                list.ListItems.Add(new ListItem(new Paragraph(new Run("tel: " + entity.PhoneNumber))));
+                if (entity.PhoneNumber != null)
+                    list.ListItems.Add(new ListItem(new Paragraph(new Run("tel: " + entity.PhoneNumber))));
+            }
         }
 
         static private void GenerateItemsTable(TableRowGroup tableRowGroup, Models.VAT vat)

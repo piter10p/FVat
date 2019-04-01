@@ -18,6 +18,9 @@ namespace FVat.Models
         public int? ReceiverId { get; set; }
         public virtual VATEntity Receiver { get; set; }
 
+        [Required]
+        public string PlaceOfIssue { get; set; }
+
         //DATES
         [Required, DataType(DataType.Date)]
         public DateTime DateOfIssue { get; set; } = DateTime.Now;
@@ -106,6 +109,7 @@ namespace FVat.Models
         {
             Id = source.Id;
             Name = source.Name;
+            PlaceOfIssue = source.PlaceOfIssue;
 
             ReceiverId = source.ReceiverId;
             Receiver = source.Receiver;

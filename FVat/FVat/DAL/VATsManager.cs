@@ -42,8 +42,10 @@ namespace FVat.DAL
             try
             {
                 var context = new AppDBContext();
-                context.Entry(vat.Issuer).State = EntityState.Unchanged;
-                context.Entry(vat.Receiver).State = EntityState.Unchanged;
+                if(vat.Issuer != null)
+                    context.Entry(vat.Issuer).State = EntityState.Unchanged;
+                if (vat.Receiver != null)
+                    context.Entry(vat.Receiver).State = EntityState.Unchanged;
                 context.VATs.Add(vat);
                 await context.SaveChangesAsync();
             }
@@ -62,8 +64,10 @@ namespace FVat.DAL
 
                 target.Update(vat);
                 context.Entry(target).State = EntityState.Modified;
-                context.Entry(vat.Issuer).State = EntityState.Unchanged;
-                context.Entry(vat.Receiver).State = EntityState.Unchanged;
+                if (vat.Issuer != null)
+                    context.Entry(vat.Issuer).State = EntityState.Unchanged;
+                if (vat.Receiver != null)
+                    context.Entry(vat.Receiver).State = EntityState.Unchanged;
 
                 await context.SaveChangesAsync();
             }
